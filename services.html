@@ -7,6 +7,39 @@
 </head>
 <body>
   <h2>Servicios disponibles</h2>
-  <p>Marketplace de servicios cubanos</p>
+  <div id="services-container">
+    <!-- Aquí se cargarán los servicios desde el backend -->
+  </div>
+
+  <script>
+    // Cambia esta URL por la de tu backend
+    const API_URL = "https://TU-BACKEND-FULLURL/services";
+
+    async function loadServices() {
+      try {
+        const res = await fetch(API_URL);
+        const data = await res.json();
+
+        const container = document.getElementById("services-container");
+        container.innerHTML = ""; // limpiar
+
+        data.forEach(service => {
+          const card = document.createElement("div");
+          card.className = "service-card";
+          card.innerHTML = `
+            <h3>${service.name}</h3>
+            <p>${service.description}</p>
+          `;
+          container.appendChild(card);
+        });
+
+      } catch (err) {
+        console.error(err);
+        document.getElementById("services-container").innerHTML = "<p>Error cargando servicios</p>";
+      }
+    }
+
+    loadServices();
+  </script>
 </body>
 </html>
