@@ -1,34 +1,59 @@
+:root {
+  --primary: #000;
+  --secondary: #444;
+  --bg: #f6f6f6;
+  --card: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: system-ui, Arial, sans-serif;
-  background: #f4f4f4;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
   color: #111;
 }
 
 .header {
-  background: #000;
+  background: var(--primary);
   color: #fff;
-  padding: 40px 20px;
+  padding: 50px 20px;
   text-align: center;
 }
 
+.header h1 {
+  margin: 0;
+  font-size: 42px;
+}
+
+.header p {
+  margin-top: 10px;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
 .menu {
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
+  padding: 25px;
+  display: grid;
   gap: 16px;
 }
 
 .btn {
-  text-decoration: none;
-  padding: 15px;
-  background: #000;
+  background: var(--primary);
   color: #fff;
+  padding: 16px;
+  border-radius: 12px;
   text-align: center;
-  border-radius: 10px;
   font-weight: 600;
+  text-decoration: none;
 }
 
 .btn.secondary {
-  background: #555;
+  background: var(--secondary);
+}
+
+h2 {
+  padding: 20px;
 }
