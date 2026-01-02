@@ -57,3 +57,10 @@ body {
 h2 {
   padding: 20px;
 }
+.service-card {
+  background: var(--card);
+  padding: 20px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
