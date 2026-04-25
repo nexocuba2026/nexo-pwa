@@ -1,26 +1,433 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>neXo Cuba</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#000000">
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostal Cienfuegos - Tu hogar en la Perla del Sur</title>
+    <meta name="description" content="Hostal en Cienfuegos, Cuba. Habitaciones confortables, servicio de transporte y la mejor ubicación. ¡Reserva ahora!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Hostal Cienfuegos</a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#habitaciones">Habitaciones</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#reservar">Reservar</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-  <header class="header">
-    <h1>neXo</h1>
-    <p>Lo que necesitas en un solo lugar</p>
-  </header>
+    <!-- Hero Section -->
+    <header id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Hostal Cienfuegos</h1>
+            <p>Descubre la auténtica hospitalidad cubana en el corazón de la Perla del Sur</p>
+            <a href="#reservar" class="btn-primary">Reservar Ahora</a>
+        </div>
+    </header>
 
-  <main class="menu">
-    <a href="login.html" class="btn">Iniciar sesión</a>
-    <a href="register.html" class="btn">Registrarse</a>
-    <a href="services.html" class="btn">Servicios</a>
-    <a href="contact.html" class="btn secondary">Contacto</a>
-  </main>
+    <!-- Sobre Nosotros -->
+    <section class="about">
+        <div class="container">
+            <h2 class="section-title">Bienvenidos a Casa</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Situado en el centro histórico de Cienfuegos, nuestro hostal te ofrece una experiencia única donde la tradición y el confort se encuentran. Disfruta de la calidez de un hogar cubano con todas las comodidades modernas.</p>
+                    <p>A solo pasos del Parque Martí, el Malecón y los principales atractivos turísticos de la ciudad declarada Patrimonio de la Humanidad por la UNESCO.</p>
+                </div>
+                <div class="about-features">
+                    <div class="feature">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Ubicación Privilegiada</h3>
+                        <p>Centro histórico de Cienfuegos</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-wifi"></i>
+                        <h3>WiFi Gratuito</h3>
+                        <p>Conexión en todas las áreas</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-snowflake"></i>
+                        <h3>Aire Acondicionado</h3>
+                        <p>Climatización en cada habitación</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Habitaciones -->
+    <section id="habitaciones" class="rooms">
+        <div class="container">
+            <h2 class="section-title">Nuestras Habitaciones</h2>
+            <div class="rooms-grid">
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="images/habitacion-estandar.jpg" alt="Habitación Estándar">
+                    </div>
+                    <div class="room-info">
+                        <h3>Habitación Estándar</h3>
+                        <p>Confortable habitación con cama matrimonial, baño privado y todas las comodidades.</p>
+                        <ul class="room-amenities">
+                            <li><i class="fas fa-bed"></i> Cama Matrimonial</li>
+                            <li><i class="fas fa-wind"></i> Aire Acondicionado</li>
+                            <li><i class="fas fa-tv"></i> TV</li>
+                            <li><i class="fas fa-shower"></i> Baño Privado</li>
+                        </ul>
+                        <span class="price">$25 USD / noche</span>
+                        <a href="#reservar" class="btn-secondary">Reservar</a>
+                    </div>
+                </div>
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="images/habitacion-superior.jpg" alt="Habitación Superior">
+                    </div>
+                    <div class="room-info">
+                        <h3>Habitación Superior</h3>
+                        <p>Amplia habitación con cama king, balcón privado y vista a la ciudad.</p>
+                        <ul class="room-amenities">
+                            <li><i class="fas fa-bed"></i> Cama King</li>
+                            <li><i class="fas fa-wind"></i> Aire Acondicionado</li>
+                            <li><i class="fas fa-tv"></i> TV</li>
+                            <li><i class="fas fa-shower"></i> Baño Privado</li>
+                            <li><i class="fas fa-coffee"></i> Minibar</li>
+                        </ul>
+                        <span class="price">$35 USD / noche</span>
+                        <a href="#reservar" class="btn-secondary">Reservar</a>
+                    </div>
+                </div>
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="images/habitacion-familiar.jpg" alt="Habitación Familiar">
+                    </div>
+                    <div class="room-info">
+                        <h3>Habitación Familiar</h3>
+                        <p>Espaciosa habitación con dos camas matrimoniales, ideal para familias o grupos.</p>
+                        <ul class="room-amenities">
+                            <li><i class="fas fa-bed"></i> 2 Camas Matrimoniales</li>
+                            <li><i class="fas fa-wind"></i> Aire Acondicionado</li>
+                            <li><i class="fas fa-tv"></i> TV</li>
+                            <li><i class="fas fa-shower"></i> Baño Privado</li>
+                            <li><i class="fas fa-couch"></i> Sala de Estar</li>
+                        </ul>
+                        <span class="price">$45 USD / noche</span>
+                        <a href="#reservar" class="btn-secondary">Reservar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <h2 class="section-title">Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-car"></i>
+                    <h3>Transportación</h3>
+                    <p>Servicio de taxi y traslados desde/hacia el aeropuerto, estación de buses y otros destinos.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Desayuno</h3>
+                    <p>Delicioso desayuno cubano incluido con frutas tropicales, café y jugos naturales.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-concierge-bell"></i>
+                    <h3>Recepción 24h</h3>
+                    <p>Atención personalizada durante todo el día para garantizar una estancia perfecta.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Tours y Excursiones</h3>
+                    <p>Organizamos visitas guiadas por la ciudad, El Nicho, Trinidad y otros destinos cercanos.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tshirt"></i>
+                    <h3>Lavandería</h3>
+                    <p>Servicio de lavado y planchado disponible para nuestros huéspedes.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-umbrella-beach"></i>
+                    <h3>Información Turística</h3>
+                    <p>Recomendaciones y asistencia para disfrutar al máximo tu visita a Cienfuegos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section id="galeria" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Galería</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/galeria-1.jpg" alt="Hostal Cienfuegos - Fachada">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/galeria-2.jpg" alt="Hostal Cienfuegos - Sala">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/galeria-3.jpg" alt="Hostal Cienfuegos - Terraza">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/galeria-4.jpg" alt="Hostal Cienfuegos - Habitación">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/galeria-5.jpg" alt="Hostal Cienfuegos - Desayuno">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/galeria-6.jpg" alt="Hostal Cienfuegos - Vista">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reserva -->
+    <section id="reservar" class="booking">
+        <div class="container">
+            <h2 class="section-title">Reserva tu Estancia</h2>
+            <div class="booking-container">
+                <form id="bookingForm" class="booking-form">
+                    <h3>Formulario de Reserva</h3>
+                    
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo *</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefono">Teléfono (WhatsApp) *</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="checkin">Fecha de Entrada *</label>
+                            <input type="date" id="checkin" name="checkin" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkout">Fecha de Salida *</label>
+                            <input type="date" id="checkout" name="checkout" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="habitacion">Tipo de Habitación *</label>
+                        <select id="habitacion" name="habitacion" required>
+                            <option value="">Seleccionar habitación...</option>
+                            <option value="estandar">Habitación Estándar - $25/noche</option>
+                            <option value="superior">Habitación Superior - $35/noche</option>
+                            <option value="familiar">Habitación Familiar - $45/noche</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="huespedes">Número de Huéspedes *</label>
+                        <select id="huespedes" name="huespedes" required>
+                            <option value="">Seleccionar...</option>
+                            <option value="1">1 Huésped</option>
+                            <option value="2">2 Huéspedes</option>
+                            <option value="3">3 Huéspedes</option>
+                            <option value="4">4 Huéspedes</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="transporte" name="transporte">
+                            Solicitar servicio de transportación
+                        </label>
+                    </div>
+                    
+                    <div id="transporteDetalles" class="transporte-detalles" style="display: none;">
+                        <div class="form-group">
+                            <label for="tipoTransporte">Tipo de Transporte</label>
+                            <select id="tipoTransporte" name="tipoTransporte">
+                                <option value="">Seleccionar...</option>
+                                <option value="aeropuerto">Traslado Aeropuerto</option>
+                                <option value="estacion">Traslado Estación de Buses</option>
+                                <option value="tour">Tour por la Ciudad</option>
+                                <option value="otro">Otro Destino</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="detallesTransporte">Detalles adicionales</label>
+                            <textarea id="detallesTransporte" name="detallesTransporte" rows="3" placeholder="Especifique horario, lugar de recogida, etc."></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje o Peticiones Especiales</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntenos cualquier necesidad especial que tenga..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary btn-block">Enviar Reserva</button>
+                    
+                    <p class="form-note">También puede contactarnos directamente por WhatsApp: +53 5XXXXXXX</p>
+                </form>
+
+                <div id="successMessage" class="success-message" style="display: none;">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>¡Reserva Enviada con Éxito!</h3>
+                    <p>Nos pondremos en contacto contigo en menos de 24 horas para confirmar tu reserva.</p>
+                    <p>Si necesitas respuesta inmediata, contáctanos por WhatsApp.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transporte -->
+    <section id="transporte-servicio" class="transport-section">
+        <div class="container">
+            <h2 class="section-title">Servicio de Transportación</h2>
+            <div class="transport-content">
+                <div class="transport-info">
+                    <p>Ofrecemos servicio de transportación privada para hacer tu viaje más cómodo y seguro:</p>
+                    <ul class="transport-list">
+                        <li>
+                            <i class="fas fa-plane"></i>
+                            <div>
+                                <h4>Traslados al Aeropuerto</h4>
+                                <p>Recogida y traslado al Aeropuerto de Cienfuegos o Santa Clara</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-bus"></i>
+                            <div>
+                                <h4>Estación de Buses</h4>
+                                <p>Traslado desde/hacia la estación de Viazul</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-city"></i>
+                            <div>
+                                <h4>City Tour</h4>
+                                <p>Recorrido por los principales atractivos de Cienfuegos</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-mountain"></i>
+                            <div>
+                                <h4>Excursiones</h4>
+                                <p>Visitas a El Nicho, Trinidad, Playa Rancho Luna y más</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="transport-cta">
+                    <h3>Solicita tu Transporte</h3>
+                    <p>Contáctanos para coordinar tu transportación</p>
+                    <a href="#reservar" class="btn-primary">Solicitar Ahora</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <ul>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Calle 37 #5210 e/ 52 y 54, Cienfuegos, Cuba</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+53 5XXXXXXX</span>
+                        </li>
+                        <li>
+                            <i class="fab fa-whatsapp"></i>
+                            <span>+53 5XXXXXXX</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@hostalcienfuegos.com</span>
+                        </li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="TripAdvisor"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.6356638122647!2d-80.4536849!3d22.147582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDA4JzUxLjMiTiA4MMKwMjcnMTMuMyJX!5e0!3m2!1ses!2ses!4v1620000000000!5m2!1ses!2ses"
+                        width="100%" 
+                        height="300" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        title="Ubicación del Hostal Cienfuegos">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Hostal Cienfuegos</h3>
+                    <p>Tu hogar en la Perla del Sur</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#habitaciones">Habitaciones</a></li>
+                        <li><a href="#reservar">Reservar</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Mantente Informado</h4>
+                    <p>Recibe ofertas especiales y noticias</p>
+                    <form id="newsletterForm">
+                        <input type="email" placeholder="Tu correo electrónico" required>
+                        <button type="submit" class="btn-secondary">Suscribir</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Hostal Cienfuegos. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/535XXXXXXXX" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
