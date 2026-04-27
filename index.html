@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hostal Cienfuegos - Tu hogar en la Perla del Sur</title>
-    <meta name="description" content="Hostal en Cienfuegos, Cuba. Habitaciones confortables, servicio de transporte y la mejor ubicación.">
+    <title>Hostal Emanuel - Tu hogar en la Perla del Sur</title>
+    <meta name="description" content="Hostal en Cienfuegos, Cuba. Habitaciones confortables, servicio de transporte y la mejor ubicación. ¡Reserva ahora!">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,8 +14,8 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Estilos integrados -->
     <style>
-        /* ============ TODOS LOS ESTILOS AQUÍ ============ */
         :root {
             --primary: #1a1a2e;
             --secondary: #c0392b;
@@ -31,732 +31,275 @@
             --transition: all 0.3s ease;
             --max-width: 1200px;
         }
-        
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.7;
             color: var(--text);
             background-color: var(--bg);
         }
-        
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', Georgia, serif;
-            color: var(--primary);
-        }
-        
-        .container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .section-padding {
-            padding: 80px 0;
-        }
-        
-        .bg-light {
-            background-color: var(--bg-light);
-        }
-        
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--primary); }
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+        .section-padding { padding: 80px 0; }
+        .bg-light { background-color: var(--bg-light); }
         .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 50px;
+            text-align: center; font-size: 2.2rem; margin-bottom: 50px;
             color: var(--primary);
         }
-        
         .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--secondary);
-            margin: 15px auto 0;
+            content: ''; display: block; width: 60px; height: 3px;
+            background: var(--secondary); margin: 15px auto 0;
         }
-        
-        /* Botones */
         .btn {
-            display: inline-block;
-            padding: 14px 36px;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
-            text-align: center;
-            text-decoration: none;
+            display: inline-block; padding: 14px 36px; font-size: 1rem;
+            font-weight: 600; border-radius: 8px; border: none; cursor: pointer;
+            transition: var(--transition); text-align: center; text-decoration: none;
         }
-        
-        .btn-primary {
-            background: var(--secondary);
-            color: #fff;
-        }
-        
+        .btn-primary { background: var(--secondary); color: #fff; }
         .btn-primary:hover {
-            background: #a93226;
-            transform: translateY(-2px);
+            background: #a93226; transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(192,57,43,0.3);
         }
-        
-        .btn-outline {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-        
-        .btn-outline:hover {
-            background: var(--primary);
-            color: #fff;
-        }
-        
-        .btn-block {
-            display: block;
-            width: 100%;
-        }
+        .btn-outline { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
+        .btn-outline:hover { background: var(--primary); color: #fff; }
+        .btn-block { display: block; width: 100%; }
         
         /* Navbar */
         .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06); transition: var(--transition);
         }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-        
+        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 70px; }
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
+            font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700;
+            color: var(--primary); text-decoration: none;
         }
-        
-        .nav-menu {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-        
+        .nav-menu { display: flex; gap: 25px; list-style: none; }
         .nav-link {
-            font-weight: 500;
-            color: var(--text);
-            text-decoration: none;
-            font-size: 0.95rem;
+            font-weight: 500; color: var(--text); text-decoration: none;
             transition: var(--transition);
         }
+        .nav-link:hover { color: var(--secondary); }
+        .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+        .bar { width: 28px; height: 3px; background: var(--primary); transition: var(--transition); }
         
-        .nav-link:hover {
-            color: var(--secondary);
+        /* Overlay */
+        .menu-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5); z-index: 1001; opacity: 0; visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .menu-overlay.active { opacity: 1; visibility: visible; }
+        
+        /* Menú lateral derecho */
+        .side-menu {
+            position: fixed; top: 0; right: -320px; width: 300px; height: 100vh;
+            background: white; box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            z-index: 1002; transition: right 0.3s ease;
+            padding: 60px 30px; display: flex; flex-direction: column; gap: 25px;
+        }
+        .side-menu.active { right: 0; }
+        .side-menu a {
+            font-weight: 500; color: var(--primary); text-decoration: none;
+            font-size: 1.1rem; border-bottom: 1px solid #eee; padding-bottom: 10px;
+        }
+        .side-menu a:hover { color: var(--secondary); }
+        
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .hamburger { display: flex; }
         }
         
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-        }
-        
-        .bar {
-            width: 28px;
-            height: 3px;
-            background: var(--primary);
-            transition: var(--transition);
-        }
-        
-        /* Hero */
+        /* Hero con imagen de fachada */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            background: url('https://images.unsplash.com/photo-1590073242678-70ee3fc28f8e?w=1200&auto=format') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-        }
-        
-        .hero-content {
             color: #fff;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
             padding: 0 20px;
         }
-        
-        .hero-title {
-            font-size: 3.5rem;
-            color: #fff;
-            margin-bottom: 20px;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.2rem;
-            color: rgba(255,255,255,0.85);
-            margin-bottom: 35px;
-        }
+        .hero-title { font-size: 4rem; color: #fff; margin-bottom: 20px; }
+        .hero-subtitle { font-size: 1.3rem; color: rgba(255,255,255,0.9); margin-bottom: 35px; }
         
         /* Welcome */
-        .welcome-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-        
-        .welcome-text p {
-            color: var(--text-light);
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-        
+        .welcome-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .welcome-text p { color: var(--text-light); margin-bottom: 15px; }
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
         .feature-box {
-            text-align: center;
-            padding: 30px 15px;
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            transition: var(--transition);
+            text-align: center; padding: 25px 15px; border: 1px solid var(--border);
+            border-radius: var(--radius); transition: var(--transition);
         }
-        
-        .feature-box:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
-        }
-        
-        .feature-box i {
-            font-size: 2rem;
-            color: var(--secondary);
-            margin-bottom: 12px;
-        }
-        
-        .feature-box h3 {
-            font-size: 1.1rem;
-            margin-bottom: 6px;
-        }
-        
-        .feature-box p {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
+        .feature-box:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+        .feature-box i { font-size: 2rem; color: var(--secondary); margin-bottom: 12px; }
+        .feature-box h3 { font-size: 1.1rem; margin-bottom: 6px; }
         
         /* Rooms */
-        .rooms-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
+        .rooms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .room-card {
-            background: #fff;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
+            background: #fff; border-radius: var(--radius); overflow: hidden;
+            box-shadow: var(--shadow); transition: var(--transition);
         }
-        
-        .room-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .room-img {
-            height: 220px;
-            background: linear-gradient(135deg, #dfe6e9, #b2bec3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #888;
-            font-weight: 500;
-        }
-        
-        .room-body {
-            padding: 25px;
-        }
-        
-        .room-body h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-        }
-        
-        .room-body > p {
-            color: var(--text-light);
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-        }
-        
+        .room-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+        .room-img img { width: 100%; height: 220px; object-fit: cover; display: block; }
+        .room-body { padding: 25px; }
+        .room-body h3 { font-size: 1.5rem; margin-bottom: 10px; }
+        .room-body > p { color: var(--text-light); margin-bottom: 15px; }
         .amenities-list {
-            list-style: none;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
+            list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
             margin-bottom: 20px;
         }
-        
-        .amenities-list li {
-            font-size: 0.85rem;
-            color: var(--text-light);
-        }
-        
-        .amenities-list i {
-            color: #27ae60;
-            margin-right: 6px;
-            font-size: 0.75rem;
-        }
-        
-        .room-price {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--secondary);
-            margin-bottom: 18px;
-        }
+        .amenities-list li { font-size: 0.9rem; color: var(--text-light); display: flex; align-items: center; gap: 8px; }
+        .amenities-list i { color: #27ae60; font-size: 0.8rem; }
+        .room-price { font-size: 1.8rem; font-weight: 700; color: var(--secondary); margin-bottom: 18px; }
         
         /* Services */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .service-card {
-            text-align: center;
-            padding: 40px 25px;
-            border-radius: var(--radius);
-            transition: var(--transition);
-            border: 1px solid transparent;
+            text-align: center; padding: 40px 25px; border-radius: var(--radius);
+            transition: var(--transition); border: 1px solid transparent;
         }
-        
-        .service-card:hover {
-            border-color: var(--border);
-            box-shadow: var(--shadow);
-            transform: translateY(-5px);
-        }
-        
+        .service-card:hover { border-color: var(--border); box-shadow: var(--shadow); transform: translateY(-5px); }
         .service-icon {
-            width: 75px;
-            height: 75px;
-            margin: 0 auto 20px;
-            background: rgba(192,57,43,0.08);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 75px; height: 75px; margin: 0 auto 20px;
+            background: rgba(192,57,43,0.08); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
         }
-        
-        .service-icon i {
-            font-size: 1.8rem;
-            color: var(--secondary);
-        }
-        
-        .service-card h3 {
-            margin-bottom: 10px;
-        }
-        
-        .service-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
+        .service-icon i { font-size: 2rem; color: var(--secondary); }
+        .service-card h3 { margin-bottom: 12px; }
+        .service-card p { color: var(--text-light); }
         
         /* Gallery */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        
-        .gallery-item {
-            height: 240px;
-            border-radius: var(--radius);
-            overflow: hidden;
-            background: linear-gradient(135deg, #dfe6e9, #b2bec3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-weight: 500;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-        
-        .gallery-item:hover {
-            transform: scale(1.03);
-            background: linear-gradient(135deg, #b2bec3, #636e72);
-            color: #fff;
-        }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .gallery-item { height: 240px; border-radius: var(--radius); overflow: hidden; cursor: pointer; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+        .gallery-item:hover img { transform: scale(1.05); }
         
         /* Booking */
-        .booking-wrapper {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
+        .booking-wrapper { max-width: 750px; margin: 0 auto; }
         .booking-form {
-            background: var(--bg-light);
-            padding: 40px;
-            border-radius: var(--radius);
+            background: var(--bg-light); padding: 40px; border-radius: var(--radius);
             box-shadow: var(--shadow);
         }
-        
-        .booking-form h3 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 1.6rem;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        
+        .booking-form h3 { text-align: center; margin-bottom: 30px; font-size: 1.8rem; }
+        .form-group { margin-bottom: 20px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.9rem; }
         input, select, textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid var(--border);
-            border-radius: 8px;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
+            width: 100%; padding: 12px 15px; border: 2px solid var(--border);
+            border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 1rem;
             transition: var(--transition);
         }
-        
         input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--secondary);
+            border-color: var(--secondary); outline: none;
+            box-shadow: 0 0 0 3px rgba(192,57,43,0.1);
         }
-        
-        .checkbox-label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-        }
-        
-        .checkbox-label input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-        }
-        
+        .checkbox-label { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+        .checkbox-label input[type="checkbox"] { width: 18px; height: 18px; }
         .transporte-box {
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 10px;
-            border: 1px solid var(--border);
+            background: #fff; padding: 20px; border-radius: var(--radius);
+            margin-top: 10px; border: 1px solid var(--border);
         }
-        
-        .form-note {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-        
-        .success-box {
-            text-align: center;
-            padding: 50px 20px;
-            display: none;
-        }
-        
-        .success-box i {
-            font-size: 4rem;
-            color: #27ae60;
-            margin-bottom: 20px;
-        }
-        
-        .success-box h3 {
-            color: #27ae60;
-            margin-bottom: 12px;
-        }
+        .form-note { text-align: center; margin-top: 20px; font-size: 0.9rem; color: var(--text-light); }
+        .success-box { text-align: center; padding: 50px 20px; display: none; }
+        .success-box i { font-size: 5rem; color: #27ae60; margin-bottom: 20px; }
+        .success-box h3 { color: #27ae60; margin-bottom: 15px; }
         
         /* Transport */
-        .transport-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-        
-        .transport-list {
-            list-style: none;
-            margin-top: 20px;
-        }
-        
-        .transport-list li {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .transport-list i {
-            color: var(--secondary);
-            font-size: 1.2rem;
-        }
-        
+        .transport-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .transport-list { list-style: none; margin-top: 20px; }
+        .transport-list li { display: flex; align-items: center; gap: 15px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .transport-list i { color: var(--secondary); font-size: 1.2rem; }
         .transport-cta {
-            text-align: center;
-            padding: 40px 25px;
-            background: #fff;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
+            text-align: center; padding: 40px 25px; background: #fff;
+            border-radius: var(--radius); box-shadow: var(--shadow);
         }
-        
-        .transport-cta h3 {
-            margin-bottom: 10px;
-        }
-        
-        .transport-cta p {
-            margin-bottom: 20px;
-            color: var(--text-light);
-        }
+        .transport-cta h3 { margin-bottom: 12px; }
+        .transport-cta p { margin-bottom: 20px; color: var(--text-light); }
         
         /* Contact */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 50px;
-        }
-        
-        .contact-info h3 {
-            margin-bottom: 25px;
-        }
-        
-        .contact-list {
-            list-style: none;
-        }
-        
-        .contact-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 18px;
-        }
-        
-        .contact-list i {
-            color: var(--secondary);
-            font-size: 1.1rem;
-            margin-top: 4px;
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 14px;
-            margin-top: 30px;
-        }
-        
+        .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; }
+        .contact-info h3 { margin-bottom: 25px; }
+        .contact-list { list-style: none; }
+        .contact-list li { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 18px; }
+        .contact-list i { color: var(--secondary); font-size: 1.2rem; margin-top: 4px; }
+        .social-icons { display: flex; gap: 14px; margin-top: 30px; }
         .social-link {
-            width: 42px;
-            height: 42px;
-            background: var(--primary);
-            color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: var(--transition);
+            width: 44px; height: 44px; background: var(--primary); color: #fff;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            text-decoration: none; transition: var(--transition);
         }
-        
-        .social-link:hover {
-            background: var(--secondary);
-            transform: translateY(-3px);
-        }
-        
-        .map-container {
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-        
-        .map-container iframe {
-            display: block;
-        }
+        .social-link:hover { background: var(--secondary); transform: translateY(-3px); }
+        .map-container { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+        .map-container iframe { display: block; }
         
         /* Footer */
         .footer {
-            background: var(--primary);
-            color: #fff;
-            padding: 60px 0 20px;
+            background: var(--primary); color: #fff; padding: 60px 0 20px;
         }
-        
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-col h3, .footer-col h4 {
-            color: #fff;
-            margin-bottom: 18px;
-        }
-        
-        .footer-col p {
-            color: rgba(255,255,255,0.7);
-        }
-        
-        .footer-col ul {
-            list-style: none;
-        }
-        
-        .footer-col ul li {
-            margin-bottom: 8px;
-        }
-        
-        .footer-col ul a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .footer-col ul a:hover {
-            color: #fff;
-        }
-        
-        .newsletter-form {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .newsletter-form input {
-            flex: 1;
-            padding: 10px;
-            border: none;
-            border-radius: 6px;
-            font-family: inherit;
-        }
-        
+        .footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-col h3, .footer-col h4 { color: #fff; margin-bottom: 18px; }
+        .footer-col p { color: rgba(255,255,255,0.7); }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 8px; }
+        .footer-col ul a { color: rgba(255,255,255,0.7); text-decoration: none; transition: var(--transition); }
+        .footer-col ul a:hover { color: #fff; }
+        .newsletter-form { display: flex; gap: 10px; margin-top: 15px; }
+        .newsletter-form input { flex: 1; padding: 10px; border: none; border-radius: 6px; font-family: inherit; }
         .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.5);
-            font-size: 0.9rem;
+            text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5); font-size: 0.9rem;
         }
+        .footer-credits { margin-top: 10px; font-size: 0.85rem; color: #999; }
+        .footer-credits a { color: var(--naranja); text-decoration: none; font-weight: 600; }
         
         /* WhatsApp */
         .whatsapp-btn {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            width: 60px;
-            height: 60px;
-            background: #25d366;
-            color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            box-shadow: 0 6px 24px rgba(37,211,102,0.4);
-            z-index: 999;
-            text-decoration: none;
-            transition: var(--transition);
+            position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px;
+            background: #25d366; color: #fff; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 32px; box-shadow: 0 6px 24px rgba(37,211,102,0.4);
+            z-index: 999; text-decoration: none; transition: var(--transition);
         }
-        
-        .whatsapp-btn:hover {
-            transform: scale(1.1);
-        }
+        .whatsapp-btn:hover { transform: scale(1.1); }
         
         /* Responsive */
         @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background: #fff;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 30px;
-                transition: var(--transition);
-            }
-            
-            .nav-menu.active {
-                left: 0;
-            }
-            
-            .hamburger {
-                display: flex;
-            }
-            
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .section-padding {
-                padding: 60px 0;
-            }
-            
-            .welcome-grid,
-            .transport-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .newsletter-form {
-                flex-direction: column;
-            }
+            .hero-title { font-size: 2.8rem; }
+            .section-title { font-size: 1.8rem; }
+            .section-padding { padding: 60px 0; }
+            .welcome-grid, .transport-grid, .contact-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .newsletter-form { flex-direction: column; }
         }
     </style>
 </head>
 <body>
+    <!-- Overlay para menú lateral -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
     <!-- Navegación -->
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
-            <a href="#inicio" class="logo">Hostal Cienfuegos</a>
+            <a href="#inicio" class="logo">Hostal Emanuel</a>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#inicio" class="nav-link">Inicio</a></li>
                 <li><a href="#habitaciones" class="nav-link">Habitaciones</a></li>
@@ -773,10 +316,20 @@
         </div>
     </nav>
 
+    <!-- Menú lateral derecho -->
+    <div class="side-menu" id="sideMenu">
+        <a href="#inicio">Inicio</a>
+        <a href="#habitaciones">Habitaciones</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#galeria">Galería</a>
+        <a href="#reservar">Reservar</a>
+        <a href="#contacto">Contacto</a>
+    </div>
+
     <!-- Hero -->
     <section id="inicio" class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">Hostal Cienfuegos</h1>
+            <h1 class="hero-title">Hostal Emanuel</h1>
             <p class="hero-subtitle">Descubre la auténtica hospitalidad cubana en el corazón de la Perla del Sur</p>
             <a href="#reservar" class="btn btn-primary">Reservar Ahora</a>
         </div>
@@ -818,7 +371,9 @@
             <h2 class="section-title">Nuestras Habitaciones</h2>
             <div class="rooms-grid">
                 <div class="room-card">
-                    <div class="room-img">Habitación Estándar</div>
+                    <div class="room-img">
+                        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=600&auto=format" alt="Habitación Estándar">
+                    </div>
                     <div class="room-body">
                         <h3>Habitación Estándar</h3>
                         <p>Confortable habitación con cama matrimonial y baño privado.</p>
@@ -833,7 +388,9 @@
                     </div>
                 </div>
                 <div class="room-card">
-                    <div class="room-img">Habitación Superior</div>
+                    <div class="room-img">
+                        <img src="https://images.unsplash.com/photo-1587985064135-0366536eab42?w=600&auto=format" alt="Habitación Superior">
+                    </div>
                     <div class="room-body">
                         <h3>Habitación Superior</h3>
                         <p>Amplia habitación con cama king y balcón privado.</p>
@@ -849,7 +406,9 @@
                     </div>
                 </div>
                 <div class="room-card">
-                    <div class="room-img">Habitación Familiar</div>
+                    <div class="room-img">
+                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&auto=format" alt="Habitación Familiar">
+                    </div>
                     <div class="room-body">
                         <h3>Habitación Familiar</h3>
                         <p>Espaciosa habitación con dos camas, ideal para familias.</p>
@@ -901,7 +460,7 @@
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-umbrella-beach"></i></div>
                     <h3>Info Turística</h3>
-                    <p>Recomendaciones para disfrutar Cienfuegos al máximo.</p>
+                    <p>Recomendaciones para disfrutar Cienfuegos.</p>
                 </div>
             </div>
         </div>
@@ -912,12 +471,12 @@
         <div class="container">
             <h2 class="section-title">Galería</h2>
             <div class="gallery-grid">
-                <div class="gallery-item">Fachada</div>
-                <div class="gallery-item">Sala</div>
-                <div class="gallery-item">Terraza</div>
-                <div class="gallery-item">Habitación</div>
-                <div class="gallery-item">Desayuno</div>
-                <div class="gallery-item">Vista</div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&auto=format" alt="Fachada"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&auto=format" alt="Sala"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=400&auto=format" alt="Terraza"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=400&auto=format" alt="Habitación"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400&auto=format" alt="Desayuno"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&auto=format" alt="Vista"></div>
             </div>
         </div>
     </section>
@@ -927,7 +486,7 @@
         <div class="container">
             <h2 class="section-title">Reserva tu Estancia</h2>
             <div class="booking-wrapper">
-                <form id="bookingForm" class="booking-form">
+                <form id="bookingForm" class="booking-form" action="https://formspree.io/f/tu-id-aqui" method="POST">
                     <h3>Formulario de Reserva</h3>
                     <div class="form-group">
                         <label for="nombre">Nombre Completo *</label>
@@ -939,7 +498,7 @@
                     </div>
                     <div class="form-group">
                         <label for="telefono">WhatsApp *</label>
-                        <input type="tel" id="telefono" name="telefono" required placeholder="+53 5XXXXXXX">
+                        <input type="tel" id="telefono" name="telefono" required placeholder="+53 50970476">
                     </div>
                     <div class="form-row">
                         <div class="form-group">
@@ -993,7 +552,7 @@
                         <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntenos cualquier necesidad especial..."></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Enviar Reserva</button>
-                    <p class="form-note">También puedes contactarnos por WhatsApp: +53 5XXXXXXX</p>
+                    <p class="form-note">También puedes contactarnos por WhatsApp: +53 50970476</p>
                 </form>
                 <div id="successMessage" class="success-box">
                     <i class="fas fa-check-circle"></i>
@@ -1037,9 +596,9 @@
                     <h3>Estamos aquí para ayudarte</h3>
                     <ul class="contact-list">
                         <li><i class="fas fa-map-marker-alt"></i> Calle 37 entre 52 y 54, Cienfuegos, Cuba</li>
-                        <li><i class="fas fa-phone"></i> +53 5XXXXXXX</li>
-                        <li><i class="fab fa-whatsapp"></i> +53 5XXXXXXX</li>
-                        <li><i class="fas fa-envelope"></i> info@hostalcienfuegos.com</li>
+                        <li><i class="fas fa-phone"></i> +53 50970476</li>
+                        <li><i class="fab fa-whatsapp"></i> +53 50970476</li>
+                        <li><i class="fas fa-envelope"></i> emanuelsilvariambaut@gmail.com</li>
                     </ul>
                     <div class="social-icons">
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
@@ -1059,7 +618,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h3>Hostal Cienfuegos</h3>
+                    <h3>Hostal Emanuel</h3>
                     <p>Tu hogar en la Perla del Sur</p>
                 </div>
                 <div class="footer-col">
@@ -1081,38 +640,43 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Hostal Cienfuegos. Todos los derechos reservados.</p>
+                <p>&copy; 2024 Hostal Emanuel. Todos los derechos reservados.</p>
+                <p class="footer-credits">Diseñado por <a href="#">NEXO</a></p>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp -->
-    <a href="https://wa.me/535XXXXXXXX" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5350970476" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- JavaScript -->
+    <!-- JavaScript integrado -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Menú móvil
+            // Menú lateral
             const hamburger = document.getElementById('hamburger');
-            const navMenu = document.getElementById('navMenu');
+            const sideMenu = document.getElementById('sideMenu');
+            const menuOverlay = document.getElementById('menuOverlay');
             
-            hamburger.addEventListener('click', function() {
-                navMenu.classList.toggle('active');
-            });
+            function openMenu() {
+                sideMenu.classList.add('active');
+                menuOverlay.classList.add('active');
+            }
+            function closeMenu() {
+                sideMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+            }
             
-            // Cerrar menú al hacer clic
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', function() {
-                    navMenu.classList.remove('active');
-                });
+            hamburger.addEventListener('click', openMenu);
+            menuOverlay.addEventListener('click', closeMenu);
+            sideMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', closeMenu);
             });
             
             // Transporte checkbox
             document.getElementById('transporte').addEventListener('change', function() {
-                const detalles = document.getElementById('transporteDetalles');
-                detalles.style.display = this.checked ? 'block' : 'none';
+                document.getElementById('transporteDetalles').style.display = this.checked ? 'block' : 'none';
             });
             
             // Fechas
@@ -1120,13 +684,45 @@
             document.getElementById('checkin').setAttribute('min', today);
             document.getElementById('checkin').addEventListener('change', function() {
                 document.getElementById('checkout').setAttribute('min', this.value);
+                if (document.getElementById('checkout').value < this.value) {
+                    document.getElementById('checkout').value = this.value;
+                }
             });
             
             // Formulario de reserva
             document.getElementById('bookingForm').addEventListener('submit', function(e) {
                 e.preventDefault();
+                const formData = {
+                    nombre: document.getElementById('nombre').value,
+                    email: document.getElementById('email').value,
+                    telefono: document.getElementById('telefono').value,
+                    checkin: document.getElementById('checkin').value,
+                    checkout: document.getElementById('checkout').value,
+                    habitacion: document.getElementById('habitacion').value,
+                    huespedes: document.getElementById('huespedes').value,
+                    transporte: document.getElementById('transporte').checked,
+                    tipoTransporte: document.getElementById('tipoTransporte').value,
+                    detallesTransporte: document.getElementById('detallesTransporte').value,
+                    mensaje: document.getElementById('mensaje').value
+                };
+                console.log('Datos de reserva:', formData);
                 this.style.display = 'none';
                 document.getElementById('successMessage').style.display = 'block';
+                // Opcional: abrir WhatsApp
+                const mensaje = encodeURIComponent(
+                    `*Nueva Reserva - Hostal Emanuel*%0A%0A` +
+                    `*Nombre:* ${formData.nombre}%0A` +
+                    `*Email:* ${formData.email}%0A` +
+                    `*Teléfono:* ${formData.telefono}%0A` +
+                    `*Check-in:* ${formData.checkin}%0A` +
+                    `*Check-out:* ${formData.checkout}%0A` +
+                    `*Habitación:* ${formData.habitacion}%0A` +
+                    `*Huéspedes:* ${formData.huespedes}%0A` +
+                    `*Transporte:* ${formData.transporte ? 'Sí - ' + formData.tipoTransporte : 'No'}%0A` +
+                    `*Mensaje:* ${formData.mensaje || 'Ninguno'}`
+                );
+                console.log('WhatsApp URL:', `https://wa.me/5350970476?text=${mensaje}`);
+                // window.open(`https://wa.me/5350970476?text=${mensaje}`, '_blank');
             });
             
             // Newsletter
@@ -1134,8 +730,16 @@
                 e.preventDefault();
                 const btn = this.querySelector('button');
                 btn.textContent = '¡Gracias!';
-                btn.style.background = '#27ae60';
-                this.reset();
+                btn.style.backgroundColor = '#27ae60';
+                btn.style.borderColor = '#27ae60';
+                btn.style.color = '#fff';
+                setTimeout(() => {
+                    btn.textContent = 'Suscribir';
+                    btn.style.backgroundColor = '';
+                    btn.style.borderColor = '';
+                    btn.style.color = '';
+                    this.reset();
+                }, 2000);
             });
             
             // Scroll suave
