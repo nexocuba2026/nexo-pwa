@@ -6,15 +6,11 @@
     <title>Hostal Emanuel - Tu hogar en la Perla del Sur</title>
     <meta name="description" content="Hostal en Cienfuegos, Cuba. Habitaciones confortables, servicio de transporte y la mejor ubicación. ¡Reserva ahora!">
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Estilos integrados -->
     <style>
         :root {
             --primary: #1a1a2e;
@@ -33,206 +29,132 @@
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            color: var(--text);
-            background-color: var(--bg);
-        }
+        body { font-family: 'Inter', sans-serif; line-height: 1.7; color: var(--text); background-color: var(--bg); }
         h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--primary); }
         .container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
         .section-padding { padding: 80px 0; }
         .bg-light { background-color: var(--bg-light); }
-        .section-title {
-            text-align: center; font-size: 2.2rem; margin-bottom: 50px;
-            color: var(--primary);
-        }
-        .section-title::after {
-            content: ''; display: block; width: 60px; height: 3px;
-            background: var(--secondary); margin: 15px auto 0;
-        }
-        .btn {
-            display: inline-block; padding: 14px 36px; font-size: 1rem;
-            font-weight: 600; border-radius: 8px; border: none; cursor: pointer;
-            transition: var(--transition); text-align: center; text-decoration: none;
-        }
+        .section-title { text-align: center; font-size: 2.2rem; margin-bottom: 50px; color: var(--primary); }
+        .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--secondary); margin: 15px auto 0; }
+        .btn { display: inline-block; padding: 14px 36px; font-size: 1rem; font-weight: 600; border-radius: 8px; border: none; cursor: pointer; transition: var(--transition); text-align: center; text-decoration: none; }
         .btn-primary { background: var(--secondary); color: #fff; }
-        .btn-primary:hover {
-            background: #a93226; transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(192,57,43,0.3);
-        }
+        .btn-primary:hover { background: #a93226; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.3); }
         .btn-outline { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
         .btn-outline:hover { background: var(--primary); color: #fff; }
         .btn-block { display: block; width: 100%; }
-        
+
         /* Navbar */
         .navbar {
             position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
             background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.06); transition: var(--transition);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
         }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 70px; }
-        .logo {
-            font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700;
-            color: var(--primary); text-decoration: none;
-        }
-        .nav-menu { display: flex; gap: 25px; list-style: none; }
-        .nav-link {
-            font-weight: 500; color: var(--text); text-decoration: none;
-            transition: var(--transition);
-        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 70px; max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+        .nav-menu { display: flex; gap: 25px; list-style: none; align-items: center; }
+        .nav-link { font-weight: 500; color: var(--text); text-decoration: none; transition: var(--transition); }
         .nav-link:hover { color: var(--secondary); }
         .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
         .bar { width: 28px; height: 3px; background: var(--primary); transition: var(--transition); }
-        
-        /* Overlay */
-        .menu-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5); z-index: 1001; opacity: 0; visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
+
+        /* Selector de idioma */
+        .lang-selector { display: flex; align-items: center; gap: 6px; margin-left: 15px; }
+        .lang-btn {
+            background: none; border: 1px solid var(--border); border-radius: 50%;
+            width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 0.7rem; font-weight: 600; transition: var(--transition); color: var(--text);
         }
+        .lang-btn.active { background: var(--secondary); color: #fff; border-color: var(--secondary); }
+        .lang-btn:hover { background: var(--secondary); color: #fff; }
+
+        /* Overlay y menú lateral */
+        .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1001; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
         .menu-overlay.active { opacity: 1; visibility: visible; }
-        
-        /* Menú lateral derecho */
-        .side-menu {
-            position: fixed; top: 0; right: -320px; width: 300px; height: 100vh;
-            background: white; box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-            z-index: 1002; transition: right 0.3s ease;
-            padding: 60px 30px; display: flex; flex-direction: column; gap: 25px;
-        }
+        .side-menu { position: fixed; top: 0; right: -320px; width: 300px; height: 100vh; background: white; box-shadow: -5px 0 15px rgba(0,0,0,0.1); z-index: 1002; transition: right 0.3s ease; padding: 60px 30px; display: flex; flex-direction: column; gap: 25px; }
         .side-menu.active { right: 0; }
-        .side-menu a {
-            font-weight: 500; color: var(--primary); text-decoration: none;
-            font-size: 1.1rem; border-bottom: 1px solid #eee; padding-bottom: 10px;
-        }
+        .side-menu a { font-weight: 500; color: var(--primary); text-decoration: none; font-size: 1.1rem; border-bottom: 1px solid #eee; padding-bottom: 10px; }
         .side-menu a:hover { color: var(--secondary); }
-        
+
         @media (max-width: 768px) {
             .nav-menu { display: none; }
             .hamburger { display: flex; }
+            .lang-selector { margin-left: auto; margin-right: 15px; }
         }
-        
-        /* Hero con imagen de fachada */
+
+        /* Hero */
         .hero {
             height: 100vh;
             background: url('https://images.unsplash.com/photo-1590073242678-70ee3fc28f8e?w=1200&auto=format') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #fff;
-            position: relative;
+            display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; position: relative;
         }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5);
-        }
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            padding: 0 20px;
-        }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
+        .hero-content { position: relative; z-index: 1; max-width: 800px; padding: 0 20px; }
         .hero-title { font-size: 4rem; color: #fff; margin-bottom: 20px; }
         .hero-subtitle { font-size: 1.3rem; color: rgba(255,255,255,0.9); margin-bottom: 35px; }
-        
+
         /* Welcome */
         .welcome-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
         .welcome-text p { color: var(--text-light); margin-bottom: 15px; }
         .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .feature-box {
-            text-align: center; padding: 25px 15px; border: 1px solid var(--border);
-            border-radius: var(--radius); transition: var(--transition);
-        }
+        .feature-box { text-align: center; padding: 25px 15px; border: 1px solid var(--border); border-radius: var(--radius); transition: var(--transition); }
         .feature-box:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
         .feature-box i { font-size: 2rem; color: var(--secondary); margin-bottom: 12px; }
         .feature-box h3 { font-size: 1.1rem; margin-bottom: 6px; }
-        
+
         /* Rooms */
         .rooms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .room-card {
-            background: #fff; border-radius: var(--radius); overflow: hidden;
-            box-shadow: var(--shadow); transition: var(--transition);
-        }
+        .room-card { background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); }
         .room-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
         .room-img img { width: 100%; height: 220px; object-fit: cover; display: block; }
         .room-body { padding: 25px; }
         .room-body h3 { font-size: 1.5rem; margin-bottom: 10px; }
         .room-body > p { color: var(--text-light); margin-bottom: 15px; }
-        .amenities-list {
-            list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
-            margin-bottom: 20px;
-        }
+        .amenities-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 20px; }
         .amenities-list li { font-size: 0.9rem; color: var(--text-light); display: flex; align-items: center; gap: 8px; }
         .amenities-list i { color: #27ae60; font-size: 0.8rem; }
         .room-price { font-size: 1.8rem; font-weight: 700; color: var(--secondary); margin-bottom: 18px; }
-        
+
         /* Services */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .service-card {
-            text-align: center; padding: 40px 25px; border-radius: var(--radius);
-            transition: var(--transition); border: 1px solid transparent;
-        }
+        .service-card { text-align: center; padding: 40px 25px; border-radius: var(--radius); transition: var(--transition); border: 1px solid transparent; }
         .service-card:hover { border-color: var(--border); box-shadow: var(--shadow); transform: translateY(-5px); }
-        .service-icon {
-            width: 75px; height: 75px; margin: 0 auto 20px;
-            background: rgba(192,57,43,0.08); border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-        }
+        .service-icon { width: 75px; height: 75px; margin: 0 auto 20px; background: rgba(192,57,43,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
         .service-icon i { font-size: 2rem; color: var(--secondary); }
         .service-card h3 { margin-bottom: 12px; }
         .service-card p { color: var(--text-light); }
-        
+
         /* Gallery */
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .gallery-item { height: 240px; border-radius: var(--radius); overflow: hidden; cursor: pointer; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
         .gallery-item:hover img { transform: scale(1.05); }
-        
+
         /* Booking */
         .booking-wrapper { max-width: 750px; margin: 0 auto; }
-        .booking-form {
-            background: var(--bg-light); padding: 40px; border-radius: var(--radius);
-            box-shadow: var(--shadow);
-        }
+        .booking-form { background: var(--bg-light); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); }
         .booking-form h3 { text-align: center; margin-bottom: 30px; font-size: 1.8rem; }
         .form-group { margin-bottom: 20px; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.9rem; }
-        input, select, textarea {
-            width: 100%; padding: 12px 15px; border: 2px solid var(--border);
-            border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 1rem;
-            transition: var(--transition);
-        }
-        input:focus, select:focus, textarea:focus {
-            border-color: var(--secondary); outline: none;
-            box-shadow: 0 0 0 3px rgba(192,57,43,0.1);
-        }
+        input, select, textarea { width: 100%; padding: 12px 15px; border: 2px solid var(--border); border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 1rem; transition: var(--transition); }
+        input:focus, select:focus, textarea:focus { border-color: var(--secondary); outline: none; box-shadow: 0 0 0 3px rgba(192,57,43,0.1); }
         .checkbox-label { display: flex; align-items: center; gap: 10px; cursor: pointer; }
         .checkbox-label input[type="checkbox"] { width: 18px; height: 18px; }
-        .transporte-box {
-            background: #fff; padding: 20px; border-radius: var(--radius);
-            margin-top: 10px; border: 1px solid var(--border);
-        }
+        .transporte-box { background: #fff; padding: 20px; border-radius: var(--radius); margin-top: 10px; border: 1px solid var(--border); }
         .form-note { text-align: center; margin-top: 20px; font-size: 0.9rem; color: var(--text-light); }
         .success-box { text-align: center; padding: 50px 20px; display: none; }
         .success-box i { font-size: 5rem; color: #27ae60; margin-bottom: 20px; }
         .success-box h3 { color: #27ae60; margin-bottom: 15px; }
-        
+
         /* Transport */
         .transport-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
         .transport-list { list-style: none; margin-top: 20px; }
         .transport-list li { display: flex; align-items: center; gap: 15px; padding: 12px 0; border-bottom: 1px solid var(--border); }
         .transport-list i { color: var(--secondary); font-size: 1.2rem; }
-        .transport-cta {
-            text-align: center; padding: 40px 25px; background: #fff;
-            border-radius: var(--radius); box-shadow: var(--shadow);
-        }
+        .transport-cta { text-align: center; padding: 40px 25px; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); }
         .transport-cta h3 { margin-bottom: 12px; }
         .transport-cta p { margin-bottom: 20px; color: var(--text-light); }
-        
+
         /* Contact */
         .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; }
         .contact-info h3 { margin-bottom: 25px; }
@@ -240,19 +162,13 @@
         .contact-list li { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 18px; }
         .contact-list i { color: var(--secondary); font-size: 1.2rem; margin-top: 4px; }
         .social-icons { display: flex; gap: 14px; margin-top: 30px; }
-        .social-link {
-            width: 44px; height: 44px; background: var(--primary); color: #fff;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            text-decoration: none; transition: var(--transition);
-        }
+        .social-link { width: 44px; height: 44px; background: var(--primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: var(--transition); }
         .social-link:hover { background: var(--secondary); transform: translateY(-3px); }
         .map-container { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
         .map-container iframe { display: block; }
-        
+
         /* Footer */
-        .footer {
-            background: var(--primary); color: #fff; padding: 60px 0 20px;
-        }
+        .footer { background: var(--primary); color: #fff; padding: 60px 0 20px; }
         .footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
         .footer-col h3, .footer-col h4 { color: #fff; margin-bottom: 18px; }
         .footer-col p { color: rgba(255,255,255,0.7); }
@@ -262,13 +178,10 @@
         .footer-col ul a:hover { color: #fff; }
         .newsletter-form { display: flex; gap: 10px; margin-top: 15px; }
         .newsletter-form input { flex: 1; padding: 10px; border: none; border-radius: 6px; font-family: inherit; }
-        .footer-bottom {
-            text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.5); font-size: 0.9rem;
-        }
+        .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 0.9rem; }
         .footer-credits { margin-top: 10px; font-size: 0.85rem; color: #999; }
         .footer-credits a { color: var(--naranja); text-decoration: none; font-weight: 600; }
-        
+
         /* WhatsApp */
         .whatsapp-btn {
             position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px;
@@ -278,12 +191,10 @@
             z-index: 999; text-decoration: none; transition: var(--transition);
         }
         .whatsapp-btn:hover { transform: scale(1.1); }
-        
-        /* Responsive */
+
         @media (max-width: 768px) {
             .hero-title { font-size: 2.8rem; }
             .section-title { font-size: 1.8rem; }
-            .section-padding { padding: 60px 0; }
             .welcome-grid, .transport-grid, .contact-grid { grid-template-columns: 1fr; }
             .features-grid { grid-template-columns: 1fr; }
             .form-row { grid-template-columns: 1fr; }
@@ -293,183 +204,174 @@
     </style>
 </head>
 <body>
-    <!-- Overlay para menú lateral -->
     <div class="menu-overlay" id="menuOverlay"></div>
 
-    <!-- Navegación -->
-    <nav class="navbar" id="navbar">
-        <div class="container nav-container">
-            <a href="#inicio" class="logo">Hostal Emanuel</a>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#inicio" class="logo" data-i18n="brand">Hostal Emanuel</a>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#inicio" class="nav-link">Inicio</a></li>
-                <li><a href="#habitaciones" class="nav-link">Habitaciones</a></li>
-                <li><a href="#servicios" class="nav-link">Servicios</a></li>
-                <li><a href="#galeria" class="nav-link">Galería</a></li>
-                <li><a href="#reservar" class="nav-link">Reservar</a></li>
-                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                <li><a href="#inicio" class="nav-link" data-i18n="nav_home">Inicio</a></li>
+                <li><a href="#habitaciones" class="nav-link" data-i18n="nav_rooms">Habitaciones</a></li>
+                <li><a href="#servicios" class="nav-link" data-i18n="nav_services">Servicios</a></li>
+                <li><a href="#galeria" class="nav-link" data-i18n="nav_gallery">Galería</a></li>
+                <li><a href="#reservar" class="nav-link" data-i18n="nav_booking">Reservar</a></li>
+                <li><a href="#contacto" class="nav-link" data-i18n="nav_contact">Contacto</a></li>
             </ul>
+            <div class="lang-selector">
+                <button class="lang-btn active" data-lang="es">ES</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="it">IT</button>
+                <button class="lang-btn" data-lang="fr">FR</button>
+                <button class="lang-btn" data-lang="pt">PT</button>
+            </div>
             <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
             </div>
         </div>
     </nav>
 
-    <!-- Menú lateral derecho -->
     <div class="side-menu" id="sideMenu">
-        <a href="#inicio">Inicio</a>
-        <a href="#habitaciones">Habitaciones</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#galeria">Galería</a>
-        <a href="#reservar">Reservar</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#inicio" data-i18n="nav_home">Inicio</a>
+        <a href="#habitaciones" data-i18n="nav_rooms">Habitaciones</a>
+        <a href="#servicios" data-i18n="nav_services">Servicios</a>
+        <a href="#galeria" data-i18n="nav_gallery">Galería</a>
+        <a href="#reservar" data-i18n="nav_booking">Reservar</a>
+        <a href="#contacto" data-i18n="nav_contact">Contacto</a>
     </div>
 
-    <!-- Hero -->
     <section id="inicio" class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">Hostal Emanuel</h1>
-            <p class="hero-subtitle">Descubre la auténtica hospitalidad cubana en el corazón de la Perla del Sur</p>
-            <a href="#reservar" class="btn btn-primary">Reservar Ahora</a>
+            <h1 class="hero-title" data-i18n="hero_title">Hostal Emanuel</h1>
+            <p class="hero-subtitle" data-i18n="hero_subtitle">Descubre la auténtica hospitalidad cubana en el corazón de la Perla del Sur</p>
+            <a href="#reservar" class="btn btn-primary" data-i18n="hero_btn">Reservar Ahora</a>
         </div>
     </section>
 
-    <!-- Bienvenida -->
     <section class="section-padding">
         <div class="container">
-            <h2 class="section-title">Bienvenidos a Casa</h2>
+            <h2 class="section-title" data-i18n="welcome_title">Bienvenidos a Casa</h2>
             <div class="welcome-grid">
                 <div class="welcome-text">
-                    <p>Situado en el centro histórico de Cienfuegos, nuestro hostal te ofrece una experiencia única donde la tradición y el confort se encuentran.</p>
-                    <p>Disfruta de la calidez de un hogar cubano con todas las comodidades modernas, a solo pasos del Parque Martí y el Malecón.</p>
+                    <p data-i18n="welcome_p1">Situado en el centro histórico de Cienfuegos, nuestro hostal te ofrece una experiencia única donde la tradición y el confort se encuentran.</p>
+                    <p data-i18n="welcome_p2">Disfruta de la calidez de un hogar cubano con todas las comodidades modernas, a solo pasos del Parque Martí y el Malecón.</p>
                 </div>
                 <div class="features-grid">
                     <div class="feature-box">
                         <i class="fas fa-map-marker-alt"></i>
-                        <h3>Ubicación</h3>
-                        <p>Centro histórico</p>
+                        <h3 data-i18n="feature_location">Ubicación</h3>
+                        <p data-i18n="feature_location_desc">Centro histórico</p>
                     </div>
                     <div class="feature-box">
                         <i class="fas fa-wifi"></i>
-                        <h3>WiFi</h3>
-                        <p>Conexión gratuita</p>
+                        <h3 data-i18n="feature_wifi">WiFi</h3>
+                        <p data-i18n="feature_wifi_desc">Conexión gratuita</p>
                     </div>
                     <div class="feature-box">
                         <i class="fas fa-wind"></i>
-                        <h3>Climatización</h3>
-                        <p>Aire acondicionado</p>
+                        <h3 data-i18n="feature_ac">Climatización</h3>
+                        <p data-i18n="feature_ac_desc">Aire acondicionado</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Habitaciones -->
     <section id="habitaciones" class="section-padding bg-light">
         <div class="container">
-            <h2 class="section-title">Nuestras Habitaciones</h2>
+            <h2 class="section-title" data-i18n="rooms_title">Nuestras Habitaciones</h2>
             <div class="rooms-grid">
                 <div class="room-card">
-                    <div class="room-img">
-                        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=600&auto=format" alt="Habitación Estándar">
-                    </div>
+                    <div class="room-img"><img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=600&auto=format" alt="Habitación Estándar"></div>
                     <div class="room-body">
-                        <h3>Habitación Estándar</h3>
-                        <p>Confortable habitación con cama matrimonial y baño privado.</p>
+                        <h3 data-i18n="room_standard">Habitación Estándar</h3>
+                        <p data-i18n="room_standard_desc">Confortable habitación con cama matrimonial y baño privado.</p>
                         <ul class="amenities-list">
-                            <li><i class="fas fa-check"></i> Cama Matrimonial</li>
-                            <li><i class="fas fa-check"></i> Aire Acondicionado</li>
-                            <li><i class="fas fa-check"></i> TV</li>
-                            <li><i class="fas fa-check"></i> Baño Privado</li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="amenity_bed">Cama Matrimonial</span></li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="amenity_ac">Aire Acondicionado</span></li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="amenity_tv">TV</span></li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="amenity_bath">Baño Privado</span></li>
                         </ul>
                         <div class="room-price">$25 USD / noche</div>
-                        <a href="#reservar" class="btn btn-outline btn-block">Reservar</a>
+                        <a href="#reservar" class="btn btn-outline btn-block" data-i18n="btn_book">Reservar</a>
                     </div>
                 </div>
                 <div class="room-card">
-                    <div class="room-img">
-                        <img src="https://images.unsplash.com/photo-1587985064135-0366536eab42?w=600&auto=format" alt="Habitación Superior">
-                    </div>
+                    <div class="room-img"><img src="https://images.unsplash.com/photo-1587985064135-0366536eab42?w=600&auto=format" alt="Habitación Superior"></div>
                     <div class="room-body">
-                        <h3>Habitación Superior</h3>
-                        <p>Amplia habitación con cama king y balcón privado.</p>
+                        <h3 data-i18n="room_superior">Habitación Superior</h3>
+                        <p data-i18n="room_superior_desc">Amplia habitación con cama king y balcón privado.</p>
                         <ul class="amenities-list">
-                            <li><i class="fas fa-check"></i> Cama King</li>
-                            <li><i class="fas fa-check"></i> Aire Acondicionado</li>
-                            <li><i class="fas fa-check"></i> TV</li>
-                            <li><i class="fas fa-check"></i> Baño Privado</li>
-                            <li><i class="fas fa-check"></i> Minibar</li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="amenity_king">Cama King</span></li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="amenity_ac">Aire Acondicionado</span></li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="amenity_tv">TV</span></li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="amenity_bath">Baño Privado</span></li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="amenity_minibar">Minibar</span></li>
                         </ul>
                         <div class="room-price">$35 USD / noche</div>
-                        <a href="#reservar" class="btn btn-outline btn-block">Reservar</a>
+                        <a href="#reservar" class="btn btn-outline btn-block" data-i18n="btn_book">Reservar</a>
                     </div>
                 </div>
                 <div class="room-card">
-                    <div class="room-img">
-                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&auto=format" alt="Habitación Familiar">
-                    </div>
+                    <div class="room-img"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&auto=format" alt="Habitación Familiar"></div>
                     <div class="room-body">
-                        <h3>Habitación Familiar</h3>
-                        <p>Espaciosa habitación con dos camas, ideal para familias.</p>
+                        <h3 data-i18n="room_family">Habitación Familiar</h3>
+                        <p data-i18n="room_family_desc">Espaciosa habitación con dos camas, ideal para familias.</p>
                         <ul class="amenities-list">
-                            <li><i class="fas fa-check"></i> 2 Camas Matrimoniales</li>
-                            <li><i class="fas fa-check"></i> Aire Acondicionado</li>
-                            <li><i class="fas fa-check"></i> TV</li>
-                            <li><i class="fas fa-check"></i> Baño Privado</li>
-                            <li><i class="fas fa-check"></i> Sala de Estar</li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="amenity_2beds">2 Camas Matrimoniales</span></li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="amenity_ac">Aire Acondicionado</span></li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="amenity_tv">TV</span></li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="amenity_bath">Baño Privado</span></li>
+                            <li><i class="fas fa-check"></i> <span data-i18n="amenity_living">Sala de Estar</span></li>
                         </ul>
                         <div class="room-price">$45 USD / noche</div>
-                        <a href="#reservar" class="btn btn-outline btn-block">Reservar</a>
+                        <a href="#reservar" class="btn btn-outline btn-block" data-i18n="btn_book">Reservar</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Servicios -->
     <section id="servicios" class="section-padding">
         <div class="container">
-            <h2 class="section-title">Servicios</h2>
+            <h2 class="section-title" data-i18n="services_title">Servicios</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-car"></i></div>
-                    <h3>Transportación</h3>
-                    <p>Traslados desde/hacia el aeropuerto y estación de buses.</p>
+                    <h3 data-i18n="service_transport">Transportación</h3>
+                    <p data-i18n="service_transport_desc">Traslados desde/hacia el aeropuerto y estación de buses.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-coffee"></i></div>
-                    <h3>Desayuno</h3>
-                    <p>Delicioso desayuno cubano con frutas tropicales incluido.</p>
+                    <h3 data-i18n="service_breakfast">Desayuno</h3>
+                    <p data-i18n="service_breakfast_desc">Delicioso desayuno cubano con frutas tropicales incluido.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-clock"></i></div>
-                    <h3>Recepción 24h</h3>
-                    <p>Atención personalizada durante todo el día.</p>
+                    <h3 data-i18n="service_reception">Recepción 24h</h3>
+                    <p data-i18n="service_reception_desc">Atención personalizada durante todo el día.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-map"></i></div>
-                    <h3>Tours</h3>
-                    <p>Excursiones a El Nicho, Trinidad y playas cercanas.</p>
+                    <h3 data-i18n="service_tours">Tours</h3>
+                    <p data-i18n="service_tours_desc">Excursiones a El Nicho, Trinidad y playas cercanas.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-tshirt"></i></div>
-                    <h3>Lavandería</h3>
-                    <p>Servicio de lavado y planchado disponible.</p>
+                    <h3 data-i18n="service_laundry">Lavandería</h3>
+                    <p data-i18n="service_laundry_desc">Servicio de lavado y planchado disponible.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-umbrella-beach"></i></div>
-                    <h3>Info Turística</h3>
-                    <p>Recomendaciones para disfrutar Cienfuegos.</p>
+                    <h3 data-i18n="service_info">Info Turística</h3>
+                    <p data-i18n="service_info_desc">Recomendaciones para disfrutar Cienfuegos.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Galería -->
     <section id="galeria" class="section-padding bg-light">
         <div class="container">
-            <h2 class="section-title">Galería</h2>
+            <h2 class="section-title" data-i18n="gallery_title">Galería</h2>
             <div class="gallery-grid">
                 <div class="gallery-item"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&auto=format" alt="Fachada"></div>
                 <div class="gallery-item"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&auto=format" alt="Sala"></div>
@@ -481,119 +383,116 @@
         </div>
     </section>
 
-    <!-- Reservar -->
     <section id="reservar" class="section-padding">
         <div class="container">
-            <h2 class="section-title">Reserva tu Estancia</h2>
+            <h2 class="section-title" data-i18n="booking_title">Reserva tu Estancia</h2>
             <div class="booking-wrapper">
-                <form id="bookingForm" class="booking-form" action="https://formspree.io/f/tu-id-aqui" method="POST">
-                    <h3>Formulario de Reserva</h3>
+                <form id="bookingForm" class="booking-form">
+                    <h3 data-i18n="booking_form_title">Formulario de Reserva</h3>
                     <div class="form-group">
-                        <label for="nombre">Nombre Completo *</label>
-                        <input type="text" id="nombre" name="nombre" required placeholder="Escribe tu nombre completo">
+                        <label for="nombre" data-i18n="form_name">Nombre Completo *</label>
+                        <input type="text" id="nombre" name="nombre" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Correo Electrónico *</label>
-                        <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                        <label for="email" data-i18n="form_email">Correo Electrónico *</label>
+                        <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <label for="telefono">WhatsApp *</label>
+                        <label for="telefono" data-i18n="form_phone">WhatsApp *</label>
                         <input type="tel" id="telefono" name="telefono" required placeholder="+53 50970476">
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="checkin">Entrada *</label>
+                            <label for="checkin" data-i18n="form_checkin">Entrada *</label>
                             <input type="date" id="checkin" name="checkin" required>
                         </div>
                         <div class="form-group">
-                            <label for="checkout">Salida *</label>
+                            <label for="checkout" data-i18n="form_checkout">Salida *</label>
                             <input type="date" id="checkout" name="checkout" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="habitacion">Habitación *</label>
+                            <label for="habitacion" data-i18n="form_room">Habitación *</label>
                             <select id="habitacion" name="habitacion" required>
-                                <option value="">Seleccionar...</option>
-                                <option value="estandar">Estándar - $25/noche</option>
-                                <option value="superior">Superior - $35/noche</option>
-                                <option value="familiar">Familiar - $45/noche</option>
+                                <option value="" data-i18n="form_select">Seleccionar...</option>
+                                <option value="estandar" data-i18n="room_standard">Estándar - $25/noche</option>
+                                <option value="superior" data-i18n="room_superior">Superior - $35/noche</option>
+                                <option value="familiar" data-i18n="room_family">Familiar - $45/noche</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="huespedes">Huéspedes *</label>
-                            <input type="number" id="huespedes" name="huespedes" min="1" max="4" required placeholder="Número de huéspedes">
+                            <label for="huespedes" data-i18n="form_guests">Huéspedes *</label>
+                            <input type="number" id="huespedes" name="huespedes" min="1" max="4" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="checkbox-label">
                             <input type="checkbox" id="transporte" name="transporte">
-                            <span>Solicitar servicio de transportación</span>
+                            <span data-i18n="form_transport">Solicitar servicio de transportación</span>
                         </label>
                     </div>
                     <div id="transporteDetalles" class="transporte-box" style="display: none;">
                         <div class="form-group">
-                            <label for="tipoTransporte">Tipo de Transporte</label>
+                            <label for="tipoTransporte" data-i18n="form_transport_type">Tipo de Transporte</label>
                             <select id="tipoTransporte" name="tipoTransporte">
-                                <option value="">Seleccionar...</option>
-                                <option value="aeropuerto">Traslado Aeropuerto</option>
-                                <option value="estacion">Traslado Estación de Buses</option>
-                                <option value="tour">Tour por la Ciudad</option>
-                                <option value="otro">Otro Destino</option>
+                                <option value="" data-i18n="form_select">Seleccionar...</option>
+                                <option value="aeropuerto" data-i18n="transport_airport">Traslado Aeropuerto</option>
+                                <option value="estacion" data-i18n="transport_station">Traslado Estación de Buses</option>
+                                <option value="tour" data-i18n="transport_tour">Tour por la Ciudad</option>
+                                <option value="otro" data-i18n="transport_other">Otro Destino</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="detallesTransporte">Detalles adicionales</label>
-                            <textarea id="detallesTransporte" name="detallesTransporte" rows="3" placeholder="Horario, lugar de recogida, etc."></textarea>
+                            <label for="detallesTransporte" data-i18n="form_transport_details">Detalles adicionales</label>
+                            <textarea id="detallesTransporte" name="detallesTransporte" rows="3"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="mensaje">Mensaje o Peticiones Especiales</label>
-                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntenos cualquier necesidad especial..."></textarea>
+                        <label for="mensaje" data-i18n="form_message">Mensaje o Peticiones Especiales</label>
+                        <textarea id="mensaje" name="mensaje" rows="4"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Enviar Reserva</button>
-                    <p class="form-note">También puedes contactarnos por WhatsApp: +53 50970476</p>
+                    <button type="submit" class="btn btn-primary btn-block" data-i18n="form_submit">Enviar Reserva</button>
+                    <p class="form-note" data-i18n="form_note">También puedes contactarnos por WhatsApp: +53 50970476</p>
                 </form>
                 <div id="successMessage" class="success-box">
                     <i class="fas fa-check-circle"></i>
-                    <h3>¡Reserva Enviada con Éxito!</h3>
-                    <p>Nos pondremos en contacto en menos de 24 horas.</p>
-                    <button class="btn btn-primary" onclick="location.reload()">Nueva Reserva</button>
+                    <h3 data-i18n="success_title">¡Reserva Enviada con Éxito!</h3>
+                    <p data-i18n="success_text">Nos pondremos en contacto en menos de 24 horas.</p>
+                    <button class="btn btn-primary" onclick="location.reload()" data-i18n="success_btn">Nueva Reserva</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Transporte -->
     <section class="section-padding bg-light">
         <div class="container">
-            <h2 class="section-title">Servicio de Transportación</h2>
+            <h2 class="section-title" data-i18n="transport_title">Servicio de Transportación</h2>
             <div class="transport-grid">
                 <div>
-                    <p>Ofrecemos servicio de transportación privada:</p>
+                    <p data-i18n="transport_intro">Ofrecemos servicio de transportación privada:</p>
                     <ul class="transport-list">
-                        <li><i class="fas fa-plane"></i> Traslados al Aeropuerto</li>
-                        <li><i class="fas fa-bus"></i> Estación de Buses Viazul</li>
-                        <li><i class="fas fa-city"></i> City Tour por Cienfuegos</li>
-                        <li><i class="fas fa-mountain"></i> Excursiones a El Nicho, Trinidad</li>
+                        <li><i class="fas fa-plane"></i> <span data-i18n="transport_airport">Traslados al Aeropuerto</span></li>
+                        <li><i class="fas fa-bus"></i> <span data-i18n="transport_station">Estación de Buses Viazul</span></li>
+                        <li><i class="fas fa-city"></i> <span data-i18n="transport_tour">City Tour por Cienfuegos</span></li>
+                        <li><i class="fas fa-mountain"></i> <span data-i18n="transport_excursion">Excursiones a El Nicho, Trinidad</span></li>
                     </ul>
                 </div>
                 <div class="transport-cta">
-                    <h3>¿Necesitas transporte?</h3>
-                    <p>Contáctanos para coordinar tu traslado</p>
-                    <a href="#reservar" class="btn btn-primary">Solicitar Ahora</a>
+                    <h3 data-i18n="transport_cta_title">¿Necesitas transporte?</h3>
+                    <p data-i18n="transport_cta_text">Contáctanos para coordinar tu traslado</p>
+                    <a href="#reservar" class="btn btn-primary" data-i18n="transport_cta_btn">Solicitar Ahora</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contacto -->
     <section id="contacto" class="section-padding">
         <div class="container">
-            <h2 class="section-title">Contacto</h2>
+            <h2 class="section-title" data-i18n="contact_title">Contacto</h2>
             <div class="contact-grid">
                 <div class="contact-info">
-                    <h3>Estamos aquí para ayudarte</h3>
+                    <h3 data-i18n="contact_help">Estamos aquí para ayudarte</h3>
                     <ul class="contact-list">
                         <li><i class="fas fa-map-marker-alt"></i> Calle 37 entre 52 y 54, Cienfuegos, Cuba</li>
                         <li><i class="fas fa-phone"></i> +53 50970476</li>
@@ -613,72 +512,523 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <h3>Hostal Emanuel</h3>
-                    <p>Tu hogar en la Perla del Sur</p>
+                    <p data-i18n="footer_tagline">Tu hogar en la Perla del Sur</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Enlaces</h4>
+                    <h4 data-i18n="footer_links">Enlaces</h4>
                     <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#habitaciones">Habitaciones</a></li>
-                        <li><a href="#reservar">Reservar</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="#inicio" data-i18n="nav_home">Inicio</a></li>
+                        <li><a href="#habitaciones" data-i18n="nav_rooms">Habitaciones</a></li>
+                        <li><a href="#reservar" data-i18n="nav_booking">Reservar</a></li>
+                        <li><a href="#contacto" data-i18n="nav_contact">Contacto</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Newsletter</h4>
-                    <p>Recibe ofertas especiales</p>
+                    <h4 data-i18n="footer_newsletter">Newsletter</h4>
+                    <p data-i18n="footer_newsletter_text">Recibe ofertas especiales</p>
                     <form id="newsletterForm" class="newsletter-form">
                         <input type="email" placeholder="Tu correo electrónico" required>
-                        <button type="submit" class="btn btn-primary">Suscribir</button>
+                        <button type="submit" class="btn btn-primary" data-i18n="footer_subscribe">Suscribir</button>
                     </form>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Hostal Emanuel. Todos los derechos reservados.</p>
-                <p class="footer-credits">Diseñado por <a href="#">NEXO</a></p>
+                <p data-i18n="footer_copy">&copy; 2024 Hostal Emanuel. Todos los derechos reservados.</p>
+                <p class="footer-credits"><span data-i18n="footer_designed">Diseñado por</span> <a href="#">NEXO</a></p>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/5350970476" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <a href="https://wa.me/5350970476" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
-    <!-- JavaScript integrado -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        const translations = {
+            es: {
+                brand: "Hostal Emanuel",
+                nav_home: "Inicio",
+                nav_rooms: "Habitaciones",
+                nav_services: "Servicios",
+                nav_gallery: "Galería",
+                nav_booking: "Reservar",
+                nav_contact: "Contacto",
+                hero_title: "Hostal Emanuel",
+                hero_subtitle: "Descubre la auténtica hospitalidad cubana en el corazón de la Perla del Sur",
+                hero_btn: "Reservar Ahora",
+                welcome_title: "Bienvenidos a Casa",
+                welcome_p1: "Situado en el centro histórico de Cienfuegos, nuestro hostal te ofrece una experiencia única donde la tradición y el confort se encuentran.",
+                welcome_p2: "Disfruta de la calidez de un hogar cubano con todas las comodidades modernas, a solo pasos del Parque Martí y el Malecón.",
+                feature_location: "Ubicación",
+                feature_location_desc: "Centro histórico",
+                feature_wifi: "WiFi",
+                feature_wifi_desc: "Conexión gratuita",
+                feature_ac: "Climatización",
+                feature_ac_desc: "Aire acondicionado",
+                rooms_title: "Nuestras Habitaciones",
+                room_standard: "Habitación Estándar",
+                room_standard_desc: "Confortable habitación con cama matrimonial y baño privado.",
+                room_superior: "Habitación Superior",
+                room_superior_desc: "Amplia habitación con cama king y balcón privado.",
+                room_family: "Habitación Familiar",
+                room_family_desc: "Espaciosa habitación con dos camas, ideal para familias.",
+                amenity_bed: "Cama Matrimonial",
+                amenity_king: "Cama King",
+                amenity_2beds: "2 Camas Matrimoniales",
+                amenity_ac: "Aire Acondicionado",
+                amenity_tv: "TV",
+                amenity_bath: "Baño Privado",
+                amenity_minibar: "Minibar",
+                amenity_living: "Sala de Estar",
+                btn_book: "Reservar",
+                services_title: "Servicios",
+                service_transport: "Transportación",
+                service_transport_desc: "Traslados desde/hacia el aeropuerto y estación de buses.",
+                service_breakfast: "Desayuno",
+                service_breakfast_desc: "Delicioso desayuno cubano con frutas tropicales incluido.",
+                service_reception: "Recepción 24h",
+                service_reception_desc: "Atención personalizada durante todo el día.",
+                service_tours: "Tours",
+                service_tours_desc: "Excursiones a El Nicho, Trinidad y playas cercanas.",
+                service_laundry: "Lavandería",
+                service_laundry_desc: "Servicio de lavado y planchado disponible.",
+                service_info: "Info Turística",
+                service_info_desc: "Recomendaciones para disfrutar Cienfuegos.",
+                gallery_title: "Galería",
+                booking_title: "Reserva tu Estancia",
+                booking_form_title: "Formulario de Reserva",
+                form_name: "Nombre Completo *",
+                form_email: "Correo Electrónico *",
+                form_phone: "WhatsApp *",
+                form_checkin: "Entrada *",
+                form_checkout: "Salida *",
+                form_room: "Habitación *",
+                form_select: "Seleccionar...",
+                form_guests: "Huéspedes *",
+                form_transport: "Solicitar servicio de transportación",
+                form_transport_type: "Tipo de Transporte",
+                form_transport_details: "Detalles adicionales",
+                form_message: "Mensaje o Peticiones Especiales",
+                form_submit: "Enviar Reserva",
+                form_note: "También puedes contactarnos por WhatsApp: +53 50970476",
+                success_title: "¡Reserva Enviada con Éxito!",
+                success_text: "Nos pondremos en contacto en menos de 24 horas.",
+                success_btn: "Nueva Reserva",
+                transport_title: "Servicio de Transportación",
+                transport_intro: "Ofrecemos servicio de transportación privada:",
+                transport_airport: "Traslados al Aeropuerto",
+                transport_station: "Estación de Buses Viazul",
+                transport_tour: "City Tour por Cienfuegos",
+                transport_excursion: "Excursiones a El Nicho, Trinidad",
+                transport_cta_title: "¿Necesitas transporte?",
+                transport_cta_text: "Contáctanos para coordinar tu traslado",
+                transport_cta_btn: "Solicitar Ahora",
+                contact_title: "Contacto",
+                contact_help: "Estamos aquí para ayudarte",
+                footer_tagline: "Tu hogar en la Perla del Sur",
+                footer_links: "Enlaces",
+                footer_newsletter: "Newsletter",
+                footer_newsletter_text: "Recibe ofertas especiales",
+                footer_subscribe: "Suscribir",
+                footer_copy: "© 2024 Hostal Emanuel. Todos los derechos reservados.",
+                footer_designed: "Diseñado por"
+            },
+            en: {
+                brand: "Hostal Emanuel",
+                nav_home: "Home",
+                nav_rooms: "Rooms",
+                nav_services: "Services",
+                nav_gallery: "Gallery",
+                nav_booking: "Booking",
+                nav_contact: "Contact",
+                hero_title: "Hostal Emanuel",
+                hero_subtitle: "Discover authentic Cuban hospitality in the heart of the Pearl of the South",
+                hero_btn: "Book Now",
+                welcome_title: "Welcome Home",
+                welcome_p1: "Located in the historic center of Cienfuegos, our hostal offers a unique experience where tradition and comfort meet.",
+                welcome_p2: "Enjoy the warmth of a Cuban home with all modern amenities, just steps from Parque Martí and the Malecón.",
+                feature_location: "Location",
+                feature_location_desc: "Historic center",
+                feature_wifi: "WiFi",
+                feature_wifi_desc: "Free connection",
+                feature_ac: "Air Conditioning",
+                feature_ac_desc: "Air conditioning",
+                rooms_title: "Our Rooms",
+                room_standard: "Standard Room",
+                room_standard_desc: "Comfortable room with double bed and private bathroom.",
+                room_superior: "Superior Room",
+                room_superior_desc: "Spacious room with king bed and private balcony.",
+                room_family: "Family Room",
+                room_family_desc: "Large room with two double beds, ideal for families.",
+                amenity_bed: "Double Bed",
+                amenity_king: "King Bed",
+                amenity_2beds: "2 Double Beds",
+                amenity_ac: "Air Conditioning",
+                amenity_tv: "TV",
+                amenity_bath: "Private Bathroom",
+                amenity_minibar: "Minibar",
+                amenity_living: "Living Room",
+                btn_book: "Book",
+                services_title: "Services",
+                service_transport: "Transportation",
+                service_transport_desc: "Transfers to/from the airport and bus station.",
+                service_breakfast: "Breakfast",
+                service_breakfast_desc: "Delicious Cuban breakfast with tropical fruits included.",
+                service_reception: "24h Reception",
+                service_reception_desc: "Personalized attention throughout the day.",
+                service_tours: "Tours",
+                service_tours_desc: "Excursions to El Nicho, Trinidad and nearby beaches.",
+                service_laundry: "Laundry",
+                service_laundry_desc: "Washing and ironing service available.",
+                service_info: "Tourist Info",
+                service_info_desc: "Recommendations to enjoy Cienfuegos.",
+                gallery_title: "Gallery",
+                booking_title: "Book Your Stay",
+                booking_form_title: "Booking Form",
+                form_name: "Full Name *",
+                form_email: "Email *",
+                form_phone: "WhatsApp *",
+                form_checkin: "Check-in *",
+                form_checkout: "Check-out *",
+                form_room: "Room *",
+                form_select: "Select...",
+                form_guests: "Guests *",
+                form_transport: "Request transportation service",
+                form_transport_type: "Transport Type",
+                form_transport_details: "Additional details",
+                form_message: "Special Requests",
+                form_submit: "Send Booking",
+                form_note: "You can also contact us via WhatsApp: +53 50970476",
+                success_title: "Booking Sent Successfully!",
+                success_text: "We will contact you within 24 hours.",
+                success_btn: "New Booking",
+                transport_title: "Transportation Service",
+                transport_intro: "We offer private transportation service:",
+                transport_airport: "Airport Transfers",
+                transport_station: "Viazul Bus Station",
+                transport_tour: "City Tour Cienfuegos",
+                transport_excursion: "Excursions to El Nicho, Trinidad",
+                transport_cta_title: "Need transport?",
+                transport_cta_text: "Contact us to coordinate your transfer",
+                transport_cta_btn: "Request Now",
+                contact_title: "Contact",
+                contact_help: "We are here to help you",
+                footer_tagline: "Your home in the Pearl of the South",
+                footer_links: "Links",
+                footer_newsletter: "Newsletter",
+                footer_newsletter_text: "Receive special offers",
+                footer_subscribe: "Subscribe",
+                footer_copy: "© 2024 Hostal Emanuel. All rights reserved.",
+                footer_designed: "Designed by"
+            },
+            it: {
+                brand: "Hostal Emanuel",
+                nav_home: "Inizio",
+                nav_rooms: "Camere",
+                nav_services: "Servizi",
+                nav_gallery: "Galleria",
+                nav_booking: "Prenota",
+                nav_contact: "Contatto",
+                hero_title: "Hostal Emanuel",
+                hero_subtitle: "Scopri l'autentica ospitalità cubana nel cuore della Perla del Sud",
+                hero_btn: "Prenota Ora",
+                welcome_title: "Benvenuti a Casa",
+                welcome_p1: "Situato nel centro storico di Cienfuegos, il nostro hostal offre un'esperienza unica dove tradizione e comfort si incontrano.",
+                welcome_p2: "Goditi il calore di una casa cubana con tutti i comfort moderni, a pochi passi dal Parque Martí e dal Malecón.",
+                feature_location: "Posizione",
+                feature_location_desc: "Centro storico",
+                feature_wifi: "WiFi",
+                feature_wifi_desc: "Connessione gratuita",
+                feature_ac: "Climatizzazione",
+                feature_ac_desc: "Aria condizionata",
+                rooms_title: "Le Nostre Camere",
+                room_standard: "Camera Standard",
+                room_standard_desc: "Camera confortevole con letto matrimoniale e bagno privato.",
+                room_superior: "Camera Superior",
+                room_superior_desc: "Ampia camera con letto king e balcone privato.",
+                room_family: "Camera Familiare",
+                room_family_desc: "Spaziosa camera con due letti matrimoniali, ideale per famiglie.",
+                amenity_bed: "Letto Matrimoniale",
+                amenity_king: "Letto King",
+                amenity_2beds: "2 Letti Matrimoniali",
+                amenity_ac: "Aria Condizionata",
+                amenity_tv: "TV",
+                amenity_bath: "Bagno Privato",
+                amenity_minibar: "Minibar",
+                amenity_living: "Salotto",
+                btn_book: "Prenota",
+                services_title: "Servizi",
+                service_transport: "Trasporto",
+                service_transport_desc: "Trasferimenti da/per l'aeroporto e la stazione degli autobus.",
+                service_breakfast: "Colazione",
+                service_breakfast_desc: "Deliziosa colazione cubana con frutta tropicale inclusa.",
+                service_reception: "Reception 24h",
+                service_reception_desc: "Attenzione personalizzata tutto il giorno.",
+                service_tours: "Tour",
+                service_tours_desc: "Escursioni a El Nicho, Trinidad e spiagge vicine.",
+                service_laundry: "Lavanderia",
+                service_laundry_desc: "Servizio di lavaggio e stiratura disponibile.",
+                service_info: "Info Turistiche",
+                service_info_desc: "Raccomandazioni per goderti Cienfuegos.",
+                gallery_title: "Galleria",
+                booking_title: "Prenota il tuo Soggiorno",
+                booking_form_title: "Modulo di Prenotazione",
+                form_name: "Nome Completo *",
+                form_email: "Email *",
+                form_phone: "WhatsApp *",
+                form_checkin: "Check-in *",
+                form_checkout: "Check-out *",
+                form_room: "Camera *",
+                form_select: "Seleziona...",
+                form_guests: "Ospiti *",
+                form_transport: "Richiedi servizio di trasporto",
+                form_transport_type: "Tipo di Trasporto",
+                form_transport_details: "Dettagli aggiuntivi",
+                form_message: "Richieste Speciali",
+                form_submit: "Invia Prenotazione",
+                form_note: "Puoi anche contattarci via WhatsApp: +53 50970476",
+                success_title: "Prenotazione Inviata con Successo!",
+                success_text: "Ti contatteremo entro 24 ore.",
+                success_btn: "Nuova Prenotazione",
+                transport_title: "Servizio di Trasporto",
+                transport_intro: "Offriamo servizio di trasporto privato:",
+                transport_airport: "Trasferimenti Aeroportuali",
+                transport_station: "Stazione degli Autobus Viazul",
+                transport_tour: "Tour della Città di Cienfuegos",
+                transport_excursion: "Escursioni a El Nicho, Trinidad",
+                transport_cta_title: "Hai bisogno di trasporto?",
+                transport_cta_text: "Contattaci per coordinare il tuo trasferimento",
+                transport_cta_btn: "Richiedi Ora",
+                contact_title: "Contatto",
+                contact_help: "Siamo qui per aiutarti",
+                footer_tagline: "La tua casa nella Perla del Sud",
+                footer_links: "Link",
+                footer_newsletter: "Newsletter",
+                footer_newsletter_text: "Ricevi offerte speciali",
+                footer_subscribe: "Iscriviti",
+                footer_copy: "© 2024 Hostal Emanuel. Tutti i diritti riservati.",
+                footer_designed: "Progettato da"
+            },
+            fr: {
+                brand: "Hostal Emanuel",
+                nav_home: "Accueil",
+                nav_rooms: "Chambres",
+                nav_services: "Services",
+                nav_gallery: "Galerie",
+                nav_booking: "Réserver",
+                nav_contact: "Contact",
+                hero_title: "Hostal Emanuel",
+                hero_subtitle: "Découvrez l'authentique hospitalité cubaine au cœur de la Perle du Sud",
+                hero_btn: "Réserver Maintenant",
+                welcome_title: "Bienvenue à la Maison",
+                welcome_p1: "Situé dans le centre historique de Cienfuegos, notre hostal vous offre une expérience unique où tradition et confort se rencontrent.",
+                welcome_p2: "Profitez de la chaleur d'un foyer cubain avec tout le confort moderne, à quelques pas du Parque Martí et du Malecón.",
+                feature_location: "Emplacement",
+                feature_location_desc: "Centre historique",
+                feature_wifi: "WiFi",
+                feature_wifi_desc: "Connexion gratuite",
+                feature_ac: "Climatisation",
+                feature_ac_desc: "Air conditionné",
+                rooms_title: "Nos Chambres",
+                room_standard: "Chambre Standard",
+                room_standard_desc: "Chambre confortable avec lit double et salle de bain privée.",
+                room_superior: "Chambre Supérieure",
+                room_superior_desc: "Chambre spacieuse avec lit king et balcon privé.",
+                room_family: "Chambre Familiale",
+                room_family_desc: "Grande chambre avec deux lits doubles, idéale pour les familles.",
+                amenity_bed: "Lit Double",
+                amenity_king: "Lit King",
+                amenity_2beds: "2 Lits Doubles",
+                amenity_ac: "Air Conditionné",
+                amenity_tv: "TV",
+                amenity_bath: "Salle de Bain Privée",
+                amenity_minibar: "Minibar",
+                amenity_living: "Salon",
+                btn_book: "Réserver",
+                services_title: "Services",
+                service_transport: "Transport",
+                service_transport_desc: "Transferts depuis/vers l'aéroport et la gare routière.",
+                service_breakfast: "Petit-déjeuner",
+                service_breakfast_desc: "Délicieux petit-déjeuner cubain avec fruits tropicaux inclus.",
+                service_reception: "Réception 24h",
+                service_reception_desc: "Attention personnalisée toute la journée.",
+                service_tours: "Excursions",
+                service_tours_desc: "Excursions à El Nicho, Trinidad et plages voisines.",
+                service_laundry: "Blanchisserie",
+                service_laundry_desc: "Service de lavage et repassage disponible.",
+                service_info: "Info Touristique",
+                service_info_desc: "Recommandations pour profiter de Cienfuegos.",
+                gallery_title: "Galerie",
+                booking_title: "Réservez votre Séjour",
+                booking_form_title: "Formulaire de Réservation",
+                form_name: "Nom Complet *",
+                form_email: "Email *",
+                form_phone: "WhatsApp *",
+                form_checkin: "Arrivée *",
+                form_checkout: "Départ *",
+                form_room: "Chambre *",
+                form_select: "Sélectionner...",
+                form_guests: "Voyageurs *",
+                form_transport: "Demander un service de transport",
+                form_transport_type: "Type de Transport",
+                form_transport_details: "Détails supplémentaires",
+                form_message: "Demandes Spéciales",
+                form_submit: "Envoyer la Réservation",
+                form_note: "Vous pouvez également nous contacter via WhatsApp : +53 50970476",
+                success_title: "Réservation Envoyée avec Succès !",
+                success_text: "Nous vous contacterons dans les 24 heures.",
+                success_btn: "Nouvelle Réservation",
+                transport_title: "Service de Transport",
+                transport_intro: "Nous offrons un service de transport privé :",
+                transport_airport: "Transferts Aéroport",
+                transport_station: "Gare Routière Viazul",
+                transport_tour: "Visite de la Ville de Cienfuegos",
+                transport_excursion: "Excursions à El Nicho, Trinidad",
+                transport_cta_title: "Besoin de transport ?",
+                transport_cta_text: "Contactez-nous pour organiser votre transfert",
+                transport_cta_btn: "Demander Maintenant",
+                contact_title: "Contact",
+                contact_help: "Nous sommes là pour vous aider",
+                footer_tagline: "Votre maison dans la Perle du Sud",
+                footer_links: "Liens",
+                footer_newsletter: "Newsletter",
+                footer_newsletter_text: "Recevez des offres spéciales",
+                footer_subscribe: "S'abonner",
+                footer_copy: "© 2024 Hostal Emanuel. Tous droits réservés.",
+                footer_designed: "Conçu par"
+            },
+            pt: {
+                brand: "Hostal Emanuel",
+                nav_home: "Início",
+                nav_rooms: "Quartos",
+                nav_services: "Serviços",
+                nav_gallery: "Galeria",
+                nav_booking: "Reservar",
+                nav_contact: "Contato",
+                hero_title: "Hostal Emanuel",
+                hero_subtitle: "Descubra a autêntica hospitalidade cubana no coração da Pérola do Sul",
+                hero_btn: "Reservar Agora",
+                welcome_title: "Bem-vindos a Casa",
+                welcome_p1: "Situado no centro histórico de Cienfuegos, nosso hostal oferece uma experiência única onde tradição e conforto se encontram.",
+                welcome_p2: "Desfrute do calor de um lar cubano com todas as comodidades modernas, a poucos passos do Parque Martí e do Malecón.",
+                feature_location: "Localização",
+                feature_location_desc: "Centro histórico",
+                feature_wifi: "WiFi",
+                feature_wifi_desc: "Conexão gratuita",
+                feature_ac: "Climatização",
+                feature_ac_desc: "Ar condicionado",
+                rooms_title: "Nossos Quartos",
+                room_standard: "Quarto Standard",
+                room_standard_desc: "Quarto confortável com cama de casal e banheiro privativo.",
+                room_superior: "Quarto Superior",
+                room_superior_desc: "Quarto amplo com cama king e varanda privativa.",
+                room_family: "Quarto Familiar",
+                room_family_desc: "Quarto espaçoso com duas camas de casal, ideal para famílias.",
+                amenity_bed: "Cama de Casal",
+                amenity_king: "Cama King",
+                amenity_2beds: "2 Camas de Casal",
+                amenity_ac: "Ar Condicionado",
+                amenity_tv: "TV",
+                amenity_bath: "Banheiro Privativo",
+                amenity_minibar: "Minibar",
+                amenity_living: "Sala de Estar",
+                btn_book: "Reservar",
+                services_title: "Serviços",
+                service_transport: "Transporte",
+                service_transport_desc: "Traslados de/para o aeroporto e rodoviária.",
+                service_breakfast: "Café da Manhã",
+                service_breakfast_desc: "Delicioso café da manhã cubano com frutas tropicais incluído.",
+                service_reception: "Recepção 24h",
+                service_reception_desc: "Atendimento personalizado durante todo o dia.",
+                service_tours: "Passeios",
+                service_tours_desc: "Excursões a El Nicho, Trinidad e praias próximas.",
+                service_laundry: "Lavanderia",
+                service_laundry_desc: "Serviço de lavagem e passadoria disponível.",
+                service_info: "Informações Turísticas",
+                service_info_desc: "Recomendações para aproveitar Cienfuegos.",
+                gallery_title: "Galeria",
+                booking_title: "Reserve sua Estadia",
+                booking_form_title: "Formulário de Reserva",
+                form_name: "Nome Completo *",
+                form_email: "E-mail *",
+                form_phone: "WhatsApp *",
+                form_checkin: "Entrada *",
+                form_checkout: "Saída *",
+                form_room: "Quarto *",
+                form_select: "Selecionar...",
+                form_guests: "Hóspedes *",
+                form_transport: "Solicitar serviço de transporte",
+                form_transport_type: "Tipo de Transporte",
+                form_transport_details: "Detalhes adicionais",
+                form_message: "Pedidos Especiais",
+                form_submit: "Enviar Reserva",
+                form_note: "Também pode nos contatar via WhatsApp: +53 50970476",
+                success_title: "Reserva Enviada com Sucesso!",
+                success_text: "Entraremos em contato em menos de 24 horas.",
+                success_btn: "Nova Reserva",
+                transport_title: "Serviço de Transporte",
+                transport_intro: "Oferecemos serviço de transporte privado:",
+                transport_airport: "Traslados ao Aeroporto",
+                transport_station: "Rodoviária Viazul",
+                transport_tour: "City Tour por Cienfuegos",
+                transport_excursion: "Excursões a El Nicho, Trinidad",
+                transport_cta_title: "Precisa de transporte?",
+                transport_cta_text: "Contate-nos para coordenar seu traslado",
+                transport_cta_btn: "Solicitar Agora",
+                contact_title: "Contato",
+                contact_help: "Estamos aqui para ajudá-lo",
+                footer_tagline: "Seu lar na Pérola do Sul",
+                footer_links: "Links",
+                footer_newsletter: "Newsletter",
+                footer_newsletter_text: "Receba ofertas especiais",
+                footer_subscribe: "Assinar",
+                footer_copy: "© 2024 Hostal Emanuel. Todos os direitos reservados.",
+                footer_designed: "Desenhado por"
+            }
+        };
+
+        function setLanguage(lang) {
+            localStorage.setItem('lang', lang);
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.dataset.i18n;
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+            // Actualizar placeholders que también necesitan traducción
+            document.getElementById('telefono').placeholder = translations[lang].form_phone_placeholder || '+53 50970476';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('lang') || 'es';
+            setLanguage(savedLang);
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+            });
+
             // Menú lateral
             const hamburger = document.getElementById('hamburger');
             const sideMenu = document.getElementById('sideMenu');
             const menuOverlay = document.getElementById('menuOverlay');
             
-            function openMenu() {
-                sideMenu.classList.add('active');
-                menuOverlay.classList.add('active');
-            }
-            function closeMenu() {
-                sideMenu.classList.remove('active');
-                menuOverlay.classList.remove('active');
-            }
+            function openMenu() { sideMenu.classList.add('active'); menuOverlay.classList.add('active'); }
+            function closeMenu() { sideMenu.classList.remove('active'); menuOverlay.classList.remove('active'); }
             
             hamburger.addEventListener('click', openMenu);
             menuOverlay.addEventListener('click', closeMenu);
-            sideMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', closeMenu);
-            });
-            
+            sideMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+
             // Transporte checkbox
             document.getElementById('transporte').addEventListener('change', function() {
                 document.getElementById('transporteDetalles').style.display = this.checked ? 'block' : 'none';
             });
-            
+
             // Fechas
             const today = new Date().toISOString().split('T')[0];
             document.getElementById('checkin').setAttribute('min', today);
@@ -688,7 +1038,7 @@
                     document.getElementById('checkout').value = this.value;
                 }
             });
-            
+
             // Formulario de reserva
             document.getElementById('bookingForm').addEventListener('submit', function(e) {
                 e.preventDefault();
@@ -708,7 +1058,6 @@
                 console.log('Datos de reserva:', formData);
                 this.style.display = 'none';
                 document.getElementById('successMessage').style.display = 'block';
-                // Opcional: abrir WhatsApp
                 const mensaje = encodeURIComponent(
                     `*Nueva Reserva - Hostal Emanuel*%0A%0A` +
                     `*Nombre:* ${formData.nombre}%0A` +
@@ -724,7 +1073,7 @@
                 console.log('WhatsApp URL:', `https://wa.me/5350970476?text=${mensaje}`);
                 // window.open(`https://wa.me/5350970476?text=${mensaje}`, '_blank');
             });
-            
+
             // Newsletter
             document.getElementById('newsletterForm').addEventListener('submit', function(e) {
                 e.preventDefault();
@@ -734,14 +1083,14 @@
                 btn.style.borderColor = '#27ae60';
                 btn.style.color = '#fff';
                 setTimeout(() => {
-                    btn.textContent = 'Suscribir';
+                    btn.textContent = translations[localStorage.getItem('lang') || 'es'].footer_subscribe;
                     btn.style.backgroundColor = '';
                     btn.style.borderColor = '';
                     btn.style.color = '';
                     this.reset();
                 }, 2000);
             });
-            
+
             // Scroll suave
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
