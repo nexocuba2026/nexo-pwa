@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hostal Emanuel - Tu hogar en la Perla del Sur</title>
     <meta name="description" content="Hostal en Cienfuegos, Cuba. Habitaciones confortables, servicio de transporte y la mejor ubicación. ¡Reserva ahora!">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         :root {
             --primary: #1a1a2e;
@@ -57,15 +57,70 @@
         .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
         .bar { width: 28px; height: 3px; background: var(--primary); transition: var(--transition); }
 
-        /* Selector de idioma */
-        .lang-selector { display: flex; align-items: center; gap: 6px; margin-left: 15px; }
-        .lang-btn {
-            background: none; border: 1px solid var(--border); border-radius: 50%;
-            width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;
-            cursor: pointer; font-size: 0.7rem; font-weight: 600; transition: var(--transition); color: var(--text);
+        /* Selector de idioma desplegable */
+        .lang-dropdown {
+            position: relative;
+            display: inline-block;
         }
-        .lang-btn.active { background: var(--secondary); color: #fff; border-color: var(--secondary); }
-        .lang-btn:hover { background: var(--secondary); color: #fff; }
+        .lang-btn {
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 6px 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition);
+        }
+        .lang-btn:hover {
+            border-color: var(--secondary);
+            color: var(--secondary);
+        }
+        .lang-btn i {
+            font-size: 0.6rem;
+            transition: transform 0.3s;
+        }
+        .lang-dropdown.open .lang-btn i {
+            transform: rotate(180deg);
+        }
+        .lang-list {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            box-shadow: var(--shadow);
+            list-style: none;
+            padding: 5px 0;
+            margin-top: 5px;
+            display: none;
+            z-index: 1001;
+        }
+        .lang-dropdown.open .lang-list {
+            display: block;
+        }
+        .lang-list li {
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text);
+            transition: background 0.3s;
+        }
+        .lang-list li:hover {
+            background: var(--bg-light);
+            color: var(--secondary);
+        }
+        .lang-list li.active {
+            background: rgba(192,57,43,0.1);
+            color: var(--secondary);
+            font-weight: 600;
+        }
 
         /* Overlay y menú lateral */
         .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1001; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
@@ -78,7 +133,7 @@
         @media (max-width: 768px) {
             .nav-menu { display: none; }
             .hamburger { display: flex; }
-            .lang-selector { margin-left: auto; margin-right: 15px; }
+            .lang-dropdown { margin-left: auto; margin-right: 15px; }
         }
 
         /* Hero */
@@ -217,12 +272,18 @@
                 <li><a href="#reservar" class="nav-link" data-i18n="nav_booking">Reservar</a></li>
                 <li><a href="#contacto" class="nav-link" data-i18n="nav_contact">Contacto</a></li>
             </ul>
-            <div class="lang-selector">
-                <button class="lang-btn active" data-lang="es">ES</button>
-                <button class="lang-btn" data-lang="en">EN</button>
-                <button class="lang-btn" data-lang="it">IT</button>
-                <button class="lang-btn" data-lang="fr">FR</button>
-                <button class="lang-btn" data-lang="pt">PT</button>
+            <!-- Selector de idioma desplegable -->
+            <div class="lang-dropdown" id="langDropdown">
+                <button class="lang-btn" id="langBtn">
+                    <span id="currentLang">ES</span> <i class="fas fa-chevron-down"></i>
+                </button>
+                <ul class="lang-list" id="langList">
+                    <li data-lang="es" class="active">ES</li>
+                    <li data-lang="en">EN</li>
+                    <li data-lang="it">IT</li>
+                    <li data-lang="fr">FR</li>
+                    <li data-lang="pt">PT</li>
+                </ul>
             </div>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span><span class="bar"></span><span class="bar"></span>
@@ -992,24 +1053,43 @@
 
         function setLanguage(lang) {
             localStorage.setItem('lang', lang);
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
+            document.querySelector('#currentLang').textContent = lang.toUpperCase();
+            document.querySelectorAll('.lang-list li').forEach(item => {
+                item.classList.remove('active');
+                if (item.dataset.lang === lang) item.classList.add('active');
+            });
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.dataset.i18n;
                 if (translations[lang] && translations[lang][key]) {
                     el.textContent = translations[lang][key];
                 }
             });
-            // Actualizar placeholders que también necesitan traducción
-            document.getElementById('telefono').placeholder = translations[lang].form_phone_placeholder || '+53 50970476';
+            document.getElementById('telefono').placeholder = '+53 50970476';
         }
 
         document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('lang') || 'es';
             setLanguage(savedLang);
 
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+            // Dropdown de idioma
+            const langDropdown = document.getElementById('langDropdown');
+            const langBtn = document.getElementById('langBtn');
+            const langList = document.getElementById('langList');
+
+            langBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                langDropdown.classList.toggle('open');
+            });
+
+            langList.querySelectorAll('li').forEach(item => {
+                item.addEventListener('click', () => {
+                    setLanguage(item.dataset.lang);
+                    langDropdown.classList.remove('open');
+                });
+            });
+
+            document.addEventListener('click', () => {
+                langDropdown.classList.remove('open');
             });
 
             // Menú lateral
